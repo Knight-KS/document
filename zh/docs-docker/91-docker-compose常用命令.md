@@ -19,9 +19,12 @@ Linux 系统请使用以下介绍的方法安装。
 # 二进制包
 在 Linux 上的也安装十分简单，从 官方 [GitHub Release](https://github.com/docker/compose/releases) 处直接下载编译好的二进制文件即可。
 
+
+https://github.com/docker/compose/releases/download/1.24.1/docker-compose-Linux-x86_64
+
 例如，在 Linux 64 位系统上直接下载对应的二进制包。
 ```
-$ sudo curl -L https://github.com/docker/compose/releases/download/1.17.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+$ sudo curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
 

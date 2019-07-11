@@ -81,3 +81,11 @@ mysql > source d:\bak\0101.sql
 
 #### 2. 区别：备份用的命令是mysqldump， 还原用的是mysql。
 
+
+### 创建数据库
+```
+CREATE DATABASE IF NOT EXISTS vvdd default charset utf8 COLLATE utf8_general_ci;
+```
+
+
+
