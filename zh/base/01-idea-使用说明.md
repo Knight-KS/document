@@ -36,20 +36,22 @@ IDEA 全称 IntelliJ IDEA，是 Java 语言开发的集成环境，IntelliJ 在�
 ![Web Application ](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-002.png)
 ## 选择工作空间
 项目命名后选择存放的工作空间，项目就创建完成了
+![Project Structure ](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-003.png)
 ## 配置 JDK
 选择 `File` -> `Project Structure...` -> `Project`
-![Project Structure ](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-003.png)
+![Project Structure ](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-004.png)
 选择 JDK 的安装路径即可
-![JDK](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-004.png)
+![JDK](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-005.png)
 ## 配置 Tomcat
 选择 `Run` -> `Edit Configurations...`
-![JDK](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-005.png)
-选择 `+ 号` -> `Tomcat Server` -> `Local`
 ![JDK](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-006.png)
+选择 `+ 号` -> `Tomcat Server` -> `Local`
+![JDK](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-007.png)
 选择 Tomcat 的安装路径即可
-
+![Server](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-008.png)
 ## 配置 Tomcat 本地部署
 继续上一步，选择 `Deployment` -> `+ 号` -> `Artifact...`
+![Server](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-009.png)
 ![Server](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-010.png)
 选择 `Server` 配置自动更新
 ![Server](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-011.png)
