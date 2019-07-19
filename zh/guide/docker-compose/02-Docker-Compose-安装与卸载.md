@@ -47,6 +47,13 @@ Compose 既然是一个 Python 应用，自然也可以直接用容器来执行�
 $ curl -L https://github.com/docker/compose/releases/download/1.8.0/run.sh > /usr/local/bin/docker-compose
 $ chmod +x /usr/local/bin/docker-compose
 ```
+
+国内安装
+```
+curl -L https://get.daocloud.io/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+```
+
 实际上，查看下载的 run.sh 脚本内容，如下
 ```
 set -e
