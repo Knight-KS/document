@@ -9,6 +9,14 @@
 ```
 version: '3.1'
 services:
+  registry:
+    image: registry
+    restart: always
+    container_name: registry
+    ports:
+      - 5000:5000
+    volumes:
+      - registry-data:/var/lib/registry
   frontend:
     image: konradkleine/docker-registry-frontend:v2
     ports:
@@ -19,7 +27,25 @@ services:
     environment:
       - ENV_DOCKER_REGISTRY_HOST=192.168.37.134
       - ENV_DOCKER_REGISTRY_PORT=5000
+volumes:
+  registry-data:
 ```
+
+```
+version: '3.1'
+services:
+  registry:
+    image: registry
+    restart: always
+    container_name: registry
+    ports:
+      - 5000:5000
+    volumes:
+      - registry-data:/var/lib/registry
+volumes:
+  registry-data:
+```
+
 > 注意：请将配置文件中的主机和端口换成自己仓库的地址
 运行成功后在浏览器访问：http://192.168.75.134:5000
 
