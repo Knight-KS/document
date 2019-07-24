@@ -4,17 +4,19 @@
 
 ## 统一环境配置
 ### 节点配置
-+───────────────────────+──────────────────+─────────+──────────────────────+─────────+─────+
-| 主机名                   | IP               | 角色      | 系统                   | CPU/内存  | 磁盘  |
-+───────────────────────+──────────────────+─────────+──────────────────────+─────────+─────+
-| kubernetes-master-01  | 192.168.81.150  | Master  | Ubuntu Server 18.04  | 2核2G    | 20G |
-| kubernetes-master-02  | 192.168.81.151  | Master  | Ubuntu Server 18.04  | 2核2G    | 20G |
-| kubernetes-master-03  | 192.168.81.152  | Master  | Ubuntu Server 18.04  | 2核2G    | 20G |
-| kubernetes-node-01    | 192.168.81.160  | Node    | Ubuntu Server 18.04  | 2核4G    | 20G |
-| kubernetes-node-02    | 192.168.81.161  | Node    | Ubuntu Server 18.04  | 2核4G    | 20G |
-| kubernetes-node-03    | 192.168.81.162  | Node    | Ubuntu Server 18.04  | 2核4G    | 20G |
-| Kubernetes VIP        | 192.168.81.200  | -       | -                    | -       | -   |
-+───────────────────────+──────────────────+─────────+──────────────────────+─────────+─────+
+
+
+| 主机名                    | IP                 | 角色     | 系统                   | CPU/内存 | 磁盘  |
+|------------------------|--------------------|--------|----------------------|--------|-----|
+| kubernetes-master-01 | 192.168.81.150 | Master | Ubuntu Server 18.04 | 2核2G   | 20G |
+| kubernetes-master-02 | 192.168.81.151 | Master | Ubuntu Server 18.04 | 2核2G   | 20G |
+| kubernetes-master-03 | 192.168.81.152 | Master | Ubuntu Server 18.04 | 2核2G   | 20G |
+| kubernetes-node-01   | 192.168.81.160 | Node   | Ubuntu Server 18.04 | 2核4G   | 20G |
+| kubernetes-node-02   | 192.168.81.161 | Node   | Ubuntu Server 18.04 | 2核4G   | 20G |
+| kubernetes-node-03   | 192.168.81.162 | Node   | Ubuntu Server 18.04 | 2核4G   | 20G |
+| Kubernetes VIP         | 192.168.81.200 | -     | -                   | -     | -  |
+
+
 
 ## 对操作系统的配置
 > 特别注意：以下步骤请在制作 VMware 镜像时一并完成，避免逐台安装的痛苦
