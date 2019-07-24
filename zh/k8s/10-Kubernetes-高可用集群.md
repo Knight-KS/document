@@ -221,6 +221,11 @@ hostnamectl set-hostname kubernetes-master-01
 # 配置 hosts
 cat >> /etc/hosts << EOF
 192.168.81.150 kubernetes-master-01
+192.168.81.151 kubernetes-master-02
+192.168.81.152 kubernetes-master-03
+192.168.81.160 kubernetes-node-01
+192.168.81.161 kubernetes-node-02
+192.168.81.162 kubernetes-node-03
 EOF
 ```
 ## 安装 HAProxy + Keepalived
