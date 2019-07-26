@@ -48,7 +48,7 @@ spec:
     # NFS 服务端配置的路径
     path: "/usr/local/kubernetes/volumes"
     # NFS 服务端地址
-    server: 192.168.141.140
+    server: 192.168.81.140
     readOnly: false
 ```
 ```
