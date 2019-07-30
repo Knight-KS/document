@@ -299,7 +299,7 @@ PS：别忘记在 `my-shop` 工程的 `pom.xml` 中增加 `<module>my-shop-domai
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.funtl</groupId>
+        <groupId>com.vvdd</groupId>
         <artifactId>my-shop-dependencies</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../my-shop-dependencies/pom.xml</relativePath>
@@ -313,7 +313,7 @@ PS：别忘记在 `my-shop` 工程的 `pom.xml` 中增加 `<module>my-shop-domai
 
     <dependencies>
         <dependency>
-            <groupId>com.funtl</groupId>
+            <groupId>com.vvdd</groupId>
             <artifactId>my-shop-commons</artifactId>
             <version>${project.parent.version}</version>
         </dependency>

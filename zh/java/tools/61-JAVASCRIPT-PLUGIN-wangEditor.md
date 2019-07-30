@@ -41,7 +41,7 @@ editor.create();
 
 ## 控制器关键代码参考
 ```
-package com.funtl.my.shop.web.admin.web.controller;
+package com.vvdd.my.shop.web.admin.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

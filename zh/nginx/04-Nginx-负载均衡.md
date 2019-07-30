@@ -35,7 +35,7 @@ http {
 
 	server {
 		listen 80;
-		server_name nginx.funtl.com;
+		server_name nginx.vvdd.com;
 		location / {
 			proxy_pass http://myapp1;
 			index index.jsp index.html index.htm;

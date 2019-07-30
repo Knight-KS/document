@@ -55,7 +55,7 @@ Spring 的依赖注入对调用者与被调用者几乎没有任何要求，完�
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.funtl</groupId>
+    <groupId>com.vvdd</groupId>
     <artifactId>hello-spring</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>

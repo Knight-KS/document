@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.funtl</groupId>
+        <groupId>com.vvdd</groupId>
         <artifactId>spring-boot-samples</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
@@ -53,7 +53,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author leizhenjie
  * @version v1.0.0
  * @date 2019-04-01 16:06:45
- * @see com.funtl.oauth2
+ * @see com.vvdd.oauth2
  */
 @SpringBootApplication
 public class OAuth2ServerApplication {
