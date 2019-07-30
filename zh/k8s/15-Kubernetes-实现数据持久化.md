@@ -37,7 +37,7 @@ metadata:
 spec:
   # 设置容量
   capacity:
-    storage: 5Gi
+    storage: 5Gi 
   # 访问模式
   accessModes:
     # 该卷能够以读写模式被多个节点同时加载
