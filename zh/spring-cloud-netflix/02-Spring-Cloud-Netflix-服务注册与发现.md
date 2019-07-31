@@ -3,7 +3,7 @@
 在这里，我们需要用的组件是 `Spring Cloud Netflix` 的 `Eureka`，`Eureka` 是一个服务注册和发现模块
 
 ## 创建服务注册中心
-其 `pom.xml` 文件配置如下：
+`hello-spring-cloud-eureka` 其 `pom.xml` 文件配置如下：
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

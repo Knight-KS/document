@@ -13,7 +13,7 @@ Spring Cloud 项目都是基于 Spring Boot 进行开发，并且都是使用 Ma
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.2.RELEASE</version>
+        <version>2.0.4.RELEASE</version>
     </parent>
 
     <groupId>com.vvdd</groupId>
@@ -23,7 +23,7 @@ Spring Cloud 项目都是基于 Spring Boot 进行开发，并且都是使用 Ma
 
     <name>hello-spring-cloud-dependencies</name>
     <url>http://www.vvdd.com</url>
-    <inceptionYear>2018-Now</inceptionYear>
+    <inceptionYear>2019-Now</inceptionYear>
 
     <properties>
         <!-- Environment Settings -->
@@ -32,7 +32,7 @@ Spring Cloud 项目都是基于 Spring Boot 进行开发，并且都是使用 Ma
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- Spring Settings -->
-        <spring-cloud.version>Finchley.RC1</spring-cloud.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
     </properties>
 
     <dependencyManagement>
