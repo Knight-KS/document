@@ -27,7 +27,7 @@ root@243c32535da7:/#
 当 `-i` `-t` 参数一起使用时，则可以看到我们熟悉的 Linux 命令提示符。
 ```
 $ docker run -dit ubuntu
-69d137adef7a8a689cbcb059e94da5489d3cddd240ff675c640c8d96e84fe1f6
+69d137adef7a8a689cbcb059e94da5489d3cddd240ff681c640c8d96e84fe1f6
 
 $ docker container ls
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES

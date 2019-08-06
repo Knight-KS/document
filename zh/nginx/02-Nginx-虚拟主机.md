@@ -79,12 +79,12 @@ http {
     # 设定请求缓冲
     client_header_buffer_size 2k;
 
-    # 配置虚拟主机 192.168.75.145
+    # 配置虚拟主机 192.168.81.145
     server {
-	# 监听的ip和端口，配置 192.168.75.145:80
+	# 监听的ip和端口，配置 192.168.81.145:80
         listen       80;
 	# 虚拟主机名称这里配置ip地址
-        server_name  192.168.75.145;
+        server_name  192.168.81.145;
 	# 所有的请求都以 / 开始，所有的请求都可以匹配此 location
         location / {
 	    # 使用 root 指令指定虚拟主机目录即网页存放目录
@@ -97,10 +97,10 @@ http {
         }
 
     }
-    # 配置虚拟主机 192.168.75.245
+    # 配置虚拟主机 192.168.81.245
     server {
         listen       8080;
-        server_name  192.168.75.145;
+        server_name  192.168.81.145;
 
         location / {
             root   /usr/share/nginx/wwwroot/html8080;
@@ -113,9 +113,9 @@ http {
 ### 需求
 - 两个域名指向同一台 Nginx 服务器，用户访问不同的域名显示不同的网页内容
 - 两个域名是 admin.service.itoken.vvdd.top 和 admin.web.itoken.vvdd.top
-- Nginx 服务器使用虚拟机 192.168.75.145
+- Nginx 服务器使用虚拟机 192.168.81.145
 ### 配置 Windows Hosts 文件
-- 通过 host 文件指定 admin.service.itoken.vvdd.top 和 admin.web.itoken.vvdd.top 对应 192.168.75.145 虚拟机：
+- 通过 host 文件指定 admin.service.itoken.vvdd.top 和 admin.web.itoken.vvdd.top 对应 192.168.81.145 虚拟机：
 - 修改 window 的 hosts 文件：（`C:\Windows\System32\drivers\etc`）
 
 

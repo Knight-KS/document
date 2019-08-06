@@ -1,6 +1,7 @@
+# itoken-config-分布式配置中心
 # Spring-Cloud-创建分布式配置中心服务端
 ## 概述
-创建一个工程名为 `hello-spring-cloud-config` 的项目，`pom.xml` 配置文件如下：
+创建一个工程名为 `itoken-cloud-config` 的项目，`pom.xml` 配置文件如下：
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -9,15 +10,15 @@
 
     <parent>
         <groupId>com.vvdd</groupId>
-        <artifactId>hello-spring-cloud-dependencies</artifactId>
+        <artifactId>itoken-dependencies</artifactId>
         <version>1.0.0-SNAPSHOT</version>
-        <relativePath>../hello-spring-cloud-dependencies/pom.xml</relativePath>
+        <relativePath>../itoken-dependencies/pom.xml</relativePath>
     </parent>
 
-    <artifactId>hello-spring-cloud-config</artifactId>
+    <artifactId>itoken-config</artifactId>
     <packaging>jar</packaging>
 
-    <name>hello-spring-cloud-config</name>
+    <name>itoken-config</name>
     <url>http://www.vvdd.com</url>
     <inceptionYear>2018-Now</inceptionYear>
 
@@ -45,6 +46,10 @@
         <!-- Spring Cloud Begin -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
         <dependency>
@@ -52,7 +57,33 @@
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
         <!-- Spring Cloud End -->
+
+        <!-- Spring Boot Admin Begin -->
+        <dependency>
+            <groupId>org.jolokia</groupId>
+            <artifactId>jolokia-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+        </dependency>
+        <!-- Spring Boot Admin End -->
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>Nexus Repository</name>
+            <url>http://172.23.34.200:8081/repository/maven-public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
 
     <build>
         <plugins>
@@ -60,7 +91,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.vvdd.hello.spring.cloud.config.ConfigApplication</mainClass>
+                    <mainClass>com.vvdd.itoken.config.ConfigApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
@@ -78,7 +109,7 @@
 ```
 通过 @EnableConfigServer 注解，开启配置服务器功能
 
-package com.vvdd.hello.spring.cloud.config;
+package com.vvdd.itoken.spring.cloud.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -94,21 +125,27 @@ public class ConfigApplication {
     }
 }
 ```
-## application.yml
+## bootstrap.yml
 增加 Config 相关配置，并设置端口号为：`8888`
 ```
 spring:
   application:
-    name: hello-spring-cloud-config
+    name: itoken-config
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
   cloud:
     config:
       label: master
       server:
         git:
-          uri: https://github.com/topsale/spring-cloud-config
+          uri: http://172.23.34.200:8080/itoken/itoken-config-respo.git
           search-paths: respo
-          username:
-          password:
+          username: topsale@vip.qq.com
+          password: 12345678
+  zipkin:
+    base-url: http://localhost:9411
 
 server:
   port: 8888
@@ -117,7 +154,55 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
 ```
+## bootstrap-prod.yml
+```
+spring:
+  application:
+    name: itoken-config
+  boot:
+    admin:
+      client:
+        url: http://192.168.81.128:8084
+  cloud:
+    config:
+      label: master
+      server:
+        git:
+          uri: http://172.23.34.200:8080/itoken/itoken-config-respo.git
+          search-paths: respo
+          username: deploy
+          password: 12345678
+  zipkin:
+    base-url: http://192.168.81.128:9411
+
+server:
+  port: 8888
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.81.128:8761/eureka/,http://192.168.81.128:8861/eureka/,http://192.168.81.128:8961/eureka/
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+```
+
 相关配置说明，如下：
 
 - `pring.cloud.config.label`：配置仓库的分支
@@ -128,29 +213,6 @@ eureka:
 注意事项：
 
 如果使用 GitLab 作为仓库的话，`git.uri` 需要在结尾加上 `.git`，GitHub 则不用
-## 测试
-浏览器端访问：http://localhost:8888/config-client/dev/master 显示如下：
-```
-<Environment> 
-  <name>config-client</name>  
-  <profiles> 
-    <profiles>dev</profiles> 
-  </profiles>  
-  <label>master</label>  
-  <version>9646007f931813d7e96a6dcc9ae34838897a91df</version>  
-  <state/>  
-  <propertySources> 
-    <propertySources> 
-      <name>https://github.com/topsale/spring-cloud-config/respo/config-client-dev.yml</name>  
-      <source> 
-        <foo>foo version 1</foo>  
-        <demo.message>Hello Spring Config</demo.message> 
-      </source> 
-    </propertySources> 
-  </propertySources> 
-</Environment>
-```
-证明配置服务中心可以从远程程序获取配置信息
 
 ## 附：HTTP 请求地址和资源文件映射
 - http://ip:port/{application}/{profile}[/{label}]
@@ -158,3 +220,4 @@ eureka:
 - http://ip:port/{label}/{application}-{profile}.yml
 - http://ip:port/{application}-{profile}.properties
 - http://ip:port/{label}/{application}-{profile}.properties
+

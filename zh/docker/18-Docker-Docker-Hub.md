@@ -53,8 +53,8 @@ $ docker tag ubuntu:17.10 username/ubuntu:17.10
 $ docker image ls
 
 REPOSITORY                                               TAG                    IMAGE ID            CREATED             SIZE
-ubuntu                                                   17.10                  275d79972a86        6 days ago          94.6MB
-username/ubuntu                                          17.10                  275d79972a86        6 days ago          94.6MB
+ubuntu                                                   17.10                  281d79972a86        6 days ago          94.6MB
+username/ubuntu                                          17.10                  281d79972a86        6 days ago          94.6MB
 
 $ docker push username/ubuntu:17.10
 

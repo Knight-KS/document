@@ -29,7 +29,7 @@ $ sudo systemctl daemon-reload
 $ sudo systemctl restart docker
 ```
 ## 检查客户端配置是否生效
-使用 docker info 命令手动检查，如果从配置中看到如下内容，说明配置成功（192.168.75.133 为教学案例 IP）
+使用 docker info 命令手动检查，如果从配置中看到如下内容，说明配置成功（192.168.81.133 为教学案例 IP）
 ```
 Insecure Registries:
  192.168.37.134:5000

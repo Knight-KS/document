@@ -122,9 +122,9 @@ df
 
 # 输出如下
 Filesystem                                    1K-blocks    Used Available Use% Mounted on
-udev                                             977556       0    977556   0% /dev
+udev                                             978156       0    978156   0% /dev
 tmpfs                                            201732    1252    200480   1% /run
-/dev/mapper/ubuntu--vg-ubuntu--lv              19475088 5490916  12971848  30% /
+/dev/mapper/ubuntu--vg-ubuntu--lv              19481088 5490916  12971848  30% /
 tmpfs                                           1008648       0   1008648   0% /dev/shm
 tmpfs                                              5120       0      5120   0% /run/lock
 tmpfs                                           1008648       0   1008648   0% /sys/fs/cgroup
@@ -133,7 +133,7 @@ tmpfs                                           1008648       0   1008648   0% /
 /dev/sda2                                        999320  214252    716256  24% /boot
 tmpfs                                            201728       0    201728   0% /run/user/0
 # 有此输出表示挂载成功
-193.192.168.81.140:/usr/local/kubernetes/volumes  19475200 5490944  12972032  30% /usr/local/kubernetes/volumes-mount
+193.192.168.81.140:/usr/local/kubernetes/volumes  19481200 5490944  12972032  30% /usr/local/kubernetes/volumes-mount
 ```
 
 ## 验证 NFS 服务

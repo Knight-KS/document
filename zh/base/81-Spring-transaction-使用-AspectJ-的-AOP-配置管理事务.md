@@ -514,7 +514,7 @@ log4j.appender.file.layout.ConversionPattern=%d %p [%c] - %m%n
 # JDBC
 # MySQL 8.x: com.mysql.cj.jdbc.Driver
 jdbc.driverClass=com.mysql.jdbc.Driver
-jdbc.connectionURL=jdbc:mysql://192.168.75.134:3306/myshop?useUnicode=true&characterEncoding=utf-8&useSSL=false
+jdbc.connectionURL=jdbc:mysql://192.168.81.134:3306/myshop?useUnicode=true&characterEncoding=utf-8&useSSL=false
 jdbc.username=root
 jdbc.password=123456
 

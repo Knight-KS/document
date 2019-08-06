@@ -5,7 +5,7 @@
 ```
 #连接设置
 driverClassName=org.postgresql.Driver
-url=jdbc:postgresql://47.75.49.19:5432/postgres
+url=jdbc:postgresql://47.81.49.19:5432/postgres
 username=postgres
 password=postgres
 

@@ -47,7 +47,7 @@ cdd3de0940ab: Pushed
 fc56279bbb33: Pushed
 b38367233d37: Pushed
 2aebd096e0e2: Pushed
-latest: digest: sha256:fe4277621f10b5026266932ddf760f5a756d2facd505a94d2da12f4f52f71f5a size: 1568
+latest: digest: sha256:fe4277621f10b5026266932ddf760f5a816d2facd505a94d2da12f4f52f71f5a size: 1568
 ```
 用 `curl` 查看仓库中的镜像。
 ```

@@ -49,8 +49,8 @@ kubectl get pods
 
 # 输出如下，需要等待一小段实践，STATUS 为 Running 即为运行成功
 NAME                     READY   STATUS    RESTARTS   AGE
-nginx-755464dd6c-qnmwp   1/1     Running   0          90m
-nginx-755464dd6c-shqrp   1/1     Running   0          90m
+nginx-815464dd6c-qnmwp   1/1     Running   0          90m
+nginx-815464dd6c-shqrp   1/1     Running   0          90m
 ```
 ## 查看已部署的服务
 ```

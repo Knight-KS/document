@@ -156,12 +156,12 @@ kubeadm init --config=kubeadm.yml --experimental-upload-certs | tee kubeadm-init
 [control-plane] Creating static Pod manifest for "kube-scheduler"
 [etcd] Creating static Pod manifest for local etcd in "/etc/kubernetes/manifests"
 [wait-control-plane] Waiting for the kubelet to boot up the control plane as static Pods from directory "/etc/kubernetes/manifests". This can take up to 4m0s
-[apiclient] All control plane components are healthy after 24.507568 seconds
+[apiclient] All control plane components are healthy after 24.508168 seconds
 [upload-config] storing the configuration used in ConfigMap "kubeadm-config" in the "kube-system" Namespace
 [kubelet] Creating a ConfigMap "kubelet-config-1.14" in namespace kube-system with the configuration for the kubelets in the cluster
 [upload-certs] Storing the certificates in ConfigMap "kubeadm-certs" in the "kube-system" Namespace
 [upload-certs] Using certificate key:
-a662b8364666f82c93cc5cd4fb4fabb623bbe9afdb182da353ac40f1752dfa4a
+a662b8364666f82c93cc5cd4fb4fabb623bbe9afdb182da353ac40f1812dfa4a
 [mark-control-plane] Marking the node kubernetes-master-01 as control-plane by adding the label "node-role.kubernetes.io/master=''"
 [mark-control-plane] Marking the node kubernetes-master-01 as control-plane by adding the taints [node-role.kubernetes.io/master:NoSchedule]
 [bootstrap-token] Using token: abcdef.0123456789abcdef
@@ -190,7 +190,7 @@ You can now join any number of the control-plane node running the following comm
 
   kubeadm join 192.168.141.200:6444 --token abcdef.0123456789abcdef \
     --discovery-token-ca-cert-hash sha256:2ea8c138021fb1e184a24ed2a81c16c92f9f25c635c73918b1402df98f9c8aad \
-    --experimental-control-plane --certificate-key a662b8364666f82c93cc5cd4fb4fabb623bbe9afdb182da353ac40f1752dfa4a
+    --experimental-control-plane --certificate-key a662b8364666f82c93cc5cd4fb4fabb623bbe9afdb182da353ac40f1812dfa4a
 
 Please note that the certificate-key gives access to cluster sensitive data, keep it secret!
 As a safeguard, uploaded-certs will be deleted in two hours; If necessary, you can use 
@@ -258,7 +258,7 @@ serviceaccount/calico-kube-controllers created
 # 示例如下，别忘记两个备用节点都要加入哦
 kubeadm join 192.168.141.200:6444 --token abcdef.0123456789abcdef \
     --discovery-token-ca-cert-hash sha256:2ea8c138021fb1e184a24ed2a81c16c92f9f25c635c73918b1402df98f9c8aad \
-    --experimental-control-plane --certificate-key a662b8364666f82c93cc5cd4fb4fabb623bbe9afdb182da353ac40f1752dfa4a
+    --experimental-control-plane --certificate-key a662b8364666f82c93cc5cd4fb4fabb623bbe9afdb182da353ac40f1812dfa4a
 
 # 输出如下
 [preflight] Running pre-flight checks

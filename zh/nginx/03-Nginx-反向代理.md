@@ -23,9 +23,9 @@
 ## 使用 Nginx 反向代理 Tomcat
 ### 需求
 - 两个 tomcat 服务通过 nginx 反向代理
-- nginx 服务器：192.168.75.145:80
-- tomcat1 服务器：192.168.75.145:9090
-- tomcat2 服务器：192.168.75.145:9091
+- nginx 服务器：192.168.81.145:80
+- tomcat1 服务器：192.168.81.145:9090
+- tomcat2 服务器：192.168.81.145:9091
 ### 启动 Tomcat 容器
 启动两个 Tomcat 容器，映射端口为 9090 和 9091，docker-compose.yml 如下：
 ```
@@ -63,12 +63,12 @@ http {
 	
 	# 配置一个代理即 tomcat1 服务器
 	upstream tomcatServer1 {
-		server 192.168.75.145:9090;
+		server 192.168.81.145:9090;
 	}
 
 	# 配置一个代理即 tomcat2 服务器
 	upstream tomcatServer2 {
-		server 192.168.75.145:9091;
+		server 192.168.81.145:9091;
 	}
 
 	# 配置一个虚拟主机

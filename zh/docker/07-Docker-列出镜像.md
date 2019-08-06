@@ -8,8 +8,8 @@ redis                latest              5f515359c7f8        5 days ago         
 nginx                latest              05a60462f8ba        5 days ago          181 MB
 mongo                3.2                 fe9198c04d62        5 days ago          342 MB
 <none>               <none>              00285df0df87        5 days ago          342 MB
-ubuntu               16.04               f753707788c5        4 weeks ago         127 MB
-ubuntu               latest              f753707788c5        4 weeks ago         127 MB
+ubuntu               16.04               f813707788c5        4 weeks ago         127 MB
+ubuntu               latest              f813707788c5        4 weeks ago         127 MB
 ubuntu               14.04               1e0c3dd64ccd        4 weeks ago         188 MB
 ```
 列表包含了 `仓库名`、`标签`、`镜像 ID`、`创建时间` 以及 `所占用的空间`。
@@ -60,15 +60,15 @@ $ docker image ls -a
 ```
 $ docker image ls ubuntu
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-ubuntu              16.04               f753707788c5        4 weeks ago         127 MB
-ubuntu              latest              f753707788c5        4 weeks ago         127 MB
+ubuntu              16.04               f813707788c5        4 weeks ago         127 MB
+ubuntu              latest              f813707788c5        4 weeks ago         127 MB
 ubuntu              14.04               1e0c3dd64ccd        4 weeks ago         188 MB
 ```
 列出特定的某个镜像，也就是说指定仓库名和标签
 ```
 $ docker image ls ubuntu:16.04
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-ubuntu              16.04               f753707788c5        4 weeks ago         127 MB
+ubuntu              16.04               f813707788c5        4 weeks ago         127 MB
 ```
 除此以外，docker image ls 还支持强大的过滤器参数 --filter，或者简写 -f。之前我们已经看到了使用过滤器来列出虚悬镜像的用法，它还有更多的用法。比如，我们希望看到在 mongo:3.2 之后建立的镜像，可以用下面的命令：
 ```
@@ -92,8 +92,8 @@ $ docker image ls -q
 05a60462f8ba
 fe9198c04d62
 00285df0df87
-f753707788c5
-f753707788c5
+f813707788c5
+f813707788c5
 1e0c3dd64ccd
 ```
 --filter 配合 -q 产生出指定范围的 ID 列表，然后送给另一个 docker 命令作为参数，从而针对这组实体成批的进行某种操作的做法在 Docker 命令行使用过程中非常常见，不仅仅是镜像，将来我们会在各个命令中看到这类搭配以完成很强大的功能。因此每次在文档看到过滤器后，可以多注意一下它们的用法。
@@ -107,8 +107,8 @@ $ docker image ls --format "{{.ID}}: {{.Repository}}"
 05a60462f8ba: nginx
 fe9198c04d62: mongo
 00285df0df87: <none>
-f753707788c5: ubuntu
-f753707788c5: ubuntu
+f813707788c5: ubuntu
+f813707788c5: ubuntu
 1e0c3dd64ccd: ubuntu
 ```
 或者打算以表格等距显示，并且有标题行，和默认一样，不过自己定义列：
@@ -119,7 +119,7 @@ IMAGE ID            REPOSITORY          TAG
 05a60462f8ba        nginx               latest
 fe9198c04d62        mongo               3.2
 00285df0df87        <none>              <none>
-f753707788c5        ubuntu              16.04
-f753707788c5        ubuntu              latest
+f813707788c5        ubuntu              16.04
+f813707788c5        ubuntu              latest
 1e0c3dd64ccd        ubuntu              14.04
 ```

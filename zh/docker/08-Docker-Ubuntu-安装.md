@@ -220,7 +220,7 @@ root@kubernetes-master:~# hostnamectl
          Icon name: computer-vm
            Chassis: vm
         Machine ID: 33011e0a95094672b99a198eff07f652
-           Boot ID: 8c0fd75d08c644abaad3df565e6e4cbd
+           Boot ID: 8c0fd81d08c644abaad3df565e6e4cbd
     Virtualization: vmware
   Operating System: Ubuntu 18.04.2 LTS
             Kernel: Linux 4.15.0-48-generic

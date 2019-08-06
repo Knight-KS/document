@@ -6,9 +6,9 @@
 
 ## Nginx 实现负载均衡
 - nginx 作为负载均衡服务器，用户请求先到达 nginx，再由 nginx 根据负载配置将请求转发至 tomcat 服务器
-- nginx 负载均衡服务器：192.168.75.145:80
-- tomcat1 服务器：192.168.75.145:9090
-- tomcat2 服务器：192.168.75.145:9091
+- nginx 负载均衡服务器：192.168.81.145:80
+- tomcat1 服务器：192.168.81.145:9090
+- tomcat2 服务器：192.168.81.145:9091
 
 ## Nginx 配置负载均衡
 修改 /usr/local/docker/nginx/conf 目录下的 nginx.conf 配置文件：
@@ -29,8 +29,8 @@ http {
     keepalive_timeout  65;
 	
 	upstream myapp1 {
-		server 192.168.75.145:9090 weight=10;
-		server 192.168.75.145:9091 weight=10;
+		server 192.168.81.145:9090 weight=10;
+		server 192.168.81.145:9091 weight=10;
 	}
 
 	server {
