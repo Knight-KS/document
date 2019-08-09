@@ -9,8 +9,8 @@
 ## Dockerfile
 在 `/usr/local/docker/runner/environment` 目录下创建 `Dockerfile`
 ```
-FROM gitlab/gitlab-runner:v11.0.2
-MAINTAINER Lusifer <topsale@vip.qq.com>
+FROM gitlab/gitlab-runner:v11.1.0
+MAINTAINER leizhenjie <zhenjie_lei@163.com>
 
 # 修改软件源
 RUN echo 'deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted universe multiverse' > /etc/apt/sources.list && \
@@ -43,15 +43,15 @@ RUN tar -zxvf jdk-8u152-linux-x64.tar.gz && \
 # 安装 Maven
 RUN mkdir -p /usr/local/maven
 WORKDIR /usr/local/maven
-RUN wget https://raw.githubusercontent.com/topsale/resources/master/maven/apache-maven-3.5.3-bin.tar.gz
-# COPY apache-maven-3.5.3-bin.tar.gz /usr/local/maven
-RUN tar -zxvf apache-maven-3.5.3-bin.tar.gz && \
-    rm -fr apache-maven-3.5.3-bin.tar.gz
-# COPY settings.xml /usr/local/maven/apache-maven-3.5.3/conf/settings.xml
+#RUN wget https://raw.githubusercontent.com/topsale/resources/master/maven/apache-maven-3.5.3-bin.tar.gz
+COPY apache-maven-3.6.1-bin.tar.gz /usr/local/maven
+RUN tar -zxvf apache-maven-3.6.1-bin.tar.gz && \
+    rm -fr apache-maven-3.6.1-bin.tar.gz
+# COPY settings.xml /usr/local/maven/apache-maven-3.6.1/conf/settings.xml
 
 # 配置环境变量
 ENV JAVA_HOME /usr/local/java/jdk1.8.0_152
-ENV MAVEN_HOME /usr/local/maven/apache-maven-3.5.3
+ENV MAVEN_HOME /usr/local/maven/apache-maven-3.6.1
 ENV PATH $PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin
 
 WORKDIR /
@@ -60,12 +60,8 @@ WORKDIR /
 在 `/usr/local/docker/runner/environment` 目录下创建 `daemon.json`，用于配置加速器和仓库地址
 ```
 {
-  "registry-mirrors": [
-    "https://registry.docker-cn.com"
-  ],
-  "insecure-registries": [
-    "192.168.81.131:5000"
-  ]
+  "registry-mirrors": ["https://vx05t6vp.mirror.aliyuncs.com"],
+  "insecure-registries": ["192.168.81.129:5000"]
 }
 ```
 ## `docker-compose.yml`
@@ -118,7 +114,7 @@ shell
 ```
 FROM openjdk:8-jre
 
-MAINTAINER Lusifer <topsale@vip.qq.com>
+MAINTAINER leizhenjie <zhenjie_lei@163.com>
 
 ENV APP_VERSION 1.0.0-SNAPSHOT
 ENV DOCKERIZE_VERSION v0.6.1
