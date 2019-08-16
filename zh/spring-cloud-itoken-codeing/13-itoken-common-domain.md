@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.funtl</groupId>
+        <groupId>com.vvdd</groupId>
         <artifactId>itoken-dependencies</artifactId>
         <version>1.0.0-SNAPSHOT</version>
         <relativePath>../itoken-dependencies/pom.xml</relativePath>
@@ -17,12 +17,12 @@
     <packaging>jar</packaging>
 
     <name>itoken-common-domain</name>
-    <url>http://www.funtl.com</url>
+    <url>http://www.vvdd.com</url>
     <inceptionYear>2018-Now</inceptionYear>
 
     <dependencies>
         <dependency>
-            <groupId>com.funtl</groupId>
+            <groupId>com.vvdd</groupId>
             <artifactId>itoken-common</artifactId>
             <version>${project.parent.version}</version>
         </dependency>

@@ -1,4 +1,4 @@
-# itoken common serivce 
+# itoken-service-upload
 ## pom.xml 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -13,10 +13,10 @@
         <relativePath>../itoken-dependencies/pom.xml</relativePath>
     </parent>
 
-    <artifactId>itoken-common-service</artifactId>
+    <artifactId>itoken-service-upload</artifactId>
     <packaging>jar</packaging>
 
-    <name>itoken-common-service</name>
+    <name>itoken-service-upload</name>
     <url>http://www.vvdd.com</url>
     <inceptionYear>2018-Now</inceptionYear>
 
@@ -27,31 +27,14 @@
             <artifactId>itoken-common</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.vvdd</groupId>
-            <artifactId>itoken-common-domain</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
         <!-- Project End -->
 
         <!-- Spring Boot Begin -->
         <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>tk.mybatis</groupId>
-            <artifactId>mapper-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-        </dependency>
-        <!-- Spring Boot End -->
+        <!-- Spring Boot Begin -->
 
         <!-- Spring Cloud Begin -->
         <dependency>
@@ -79,49 +62,43 @@
         </dependency>
         <!-- Spring Boot Admin End -->
 
-        <!-- Environment Begin -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <scope>runtime</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
-        <!-- Environment End -->
 
-        <!-- Swagger2 Begin -->
+        <!-- FastDFS Begin -->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
+            <groupId>org.csource</groupId>
+            <artifactId>fastdfs-client-java</artifactId>
+            <version>1.27-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-        </dependency>
-        <!-- Swagger2 End -->
+        <!-- FastDFS End -->
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>Nexus Repository</name>
+            <url>http://172.23.34.220:8081/repository/maven-public/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.5</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <configurationFile>${basedir}/src/main/resources/generator/generatorConfig.xml</configurationFile>
-                    <overwrite>true</overwrite>
-                    <verbose>true</verbose>
+                    <mainClass>com.vvdd.itoken.service.upload.ServiceUploadApplication</mainClass>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>${mysql.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>tk.mybatis</groupId>
-                        <artifactId>mapper</artifactId>
-                        <version>3.4.4</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
