@@ -13,17 +13,17 @@
         <relativePath>../itoken-dependencies/pom.xml</relativePath>
     </parent>
 
-    <artifactId>itoken-web-posts</artifactId>
+    <artifactId>itoken-service-posts</artifactId>
     <packaging>jar</packaging>
 
-    <name>itoken-web-posts</name>
+    <name>itoken-service-posts</name>
     <url>http://www.vvdd.com</url>
     <inceptionYear>2018-Now</inceptionYear>
 
     <dependencies>
         <dependency>
             <groupId>com.vvdd</groupId>
-            <artifactId>itoken-common-web</artifactId>
+            <artifactId>itoken-common-service</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
         <dependency>
@@ -53,10 +53,11 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.vvdd.itoken.web.posts.WebPostsApplication</mainClass>
+                    <mainClass>com.vvdd.itoken.service.posts.ServicePostsApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 </project>
 ```
+

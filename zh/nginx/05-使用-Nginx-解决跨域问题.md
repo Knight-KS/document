@@ -30,6 +30,11 @@ JSONP 只支持 GET 请求，CORS 支持所有类型的 HTTP 请求。JSONP 的�
 
 ### 使用 Nginx 反向代理解决跨域问题
 以上跨域问题解决方案都需要服务器支持，当服务器无法设置 header 或提供 callback 时我们就可以采用 Nginx 反向代理的方式解决跨域问题。
+```
+add_header Access-Control-Allow-Origin  *;
+add_header Access-Control-Allow-Headers X-Requested-With;
+add_header Access-Control-Allow-Methods GET,POST,PUT,DELETE,PATCH,OPTIONS;
+```
 
 以下为文件上传的跨域配置方案：
 ```
