@@ -26,27 +26,29 @@ services:
 
 ```
 FROM solr
-MAINTAINER Liezhenjie <zhenjie_lei@163.com>
+MAINTAINER leizhenjie <zhenjie_lei@163.com>
 
 # 创建 Core
-WORKDIR /usr/local/docker/solr/server/solr
+WORKDIR /opt/solr/server/solr
 RUN mkdir ik_core
-WORKDIR /usr/local/docker/solr/server/solr/ik_core
+WORKDIR /opt/solr/server/solr/ik_core
 RUN echo 'name=ik_core' > core.properties
 RUN mkdir data
 RUN cp -r ../configsets/sample_techproducts_configs/conf/ .
 
 # 安装中文分词
-WORKDIR /usr/local/docker/solr/server/solr-webapp/webapp/WEB-INF/lib
+WORKDIR /opt/solr/server/solr-webapp/webapp/WEB-INF/lib
 ADD ik-analyzer-solr5-5.x.jar .
 ADD solr-analyzer-ik-5.1.0.jar .
-WORKDIR /usr/local/docker/solr/server/solr-webapp/webapp/WEB-INF
+WORKDIR /opt/solr/server/solr-webapp/webapp/WEB-INF
 ADD ext.dic .
 ADD stopword.dic .
 ADD IKAnalyzer.cfg.xml .
 
 # 增加分词配置
-COPY managed-schema /usr/local/docker/solr/server/solr/ik_core/conf
+COPY managed-schema /opt/solr/server/solr/ik_core/conf
 
-WORKDIR /usr/local/docker/solr
+WORKDIR /opt/solr
 ```
+
+## 部署成功效果图
