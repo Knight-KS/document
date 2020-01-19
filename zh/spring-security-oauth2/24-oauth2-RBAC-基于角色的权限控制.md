@@ -4,7 +4,7 @@
 
 RBAC（Role-Based Access Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般是多对多的关系。（如下图）
 
-![img](https://www.funtl.com/assets1/Lusifer_2019040416220001.png)
+![img](../../static/zh/spring-security-oauth2/24-001.png)
 
 ## 目的
 
@@ -38,11 +38,11 @@ RBAC（Role-Based Access Control，基于角色的访问控制），就是用户
 
 ### 关系图
 
-![img](https://www.funtl.com/assets1/Lusifer_2019040416220002.png)
+![img](../../static/zh/spring-security-oauth2/24-002.png)
 
 ### 模块图
 
-![img](https://www.funtl.com/assets1/Lusifer_2019040417150001.png)
+![img](../../static/zh/spring-security-oauth2/24-003.png)
 
 ## 表结构
 

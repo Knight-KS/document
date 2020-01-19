@@ -4,13 +4,10 @@
 
 ## 概述
 
-在实际开发中，我们的用户信息都是存在数据库里的，本章节基于 [RBAC 模型](https://www.funtl.com/zh/spring-security-oauth2/RBAC-基于角色的权限控制.html) 将用户的认证信息与数据库对接，实现真正的用户认证与授权
+在实际开发中，我们的用户信息都是存在数据库里的，基于 **RBAC 模型** 将用户的认证信息与数据库对接，实现真正的用户认证与授权
 
 **操作流程**
 
-继续 [基于 JDBC 存储令牌](https://www.funtl.com/zh/spring-security-oauth2/基于-JDBC-存储令牌.html) 章节的代码开发
-
-- 
 - 初始化 RBAC 相关表
 - 在数据库中配置“用户”、“角色”、“权限”相关信息
 - 数据库操作使用 `tk.mybatis` 框架，故需要增加相关依赖
@@ -137,11 +134,11 @@ System.out.println(new BCryptPasswordEncoder().encode("123456"));
 目的是为了实现自定义认证授权时可以通过数据库查询用户信息，Spring Security oAuth2 要求使用 `username` 的方式查询，提供相关用户信息后，认证工作由框架自行完成
 
 ```java
-package com.funtl.oauth2.server.service.impl;
+package com.vvdd.oauth2.server.service.impl;
 
-import com.funtl.oauth2.server.domain.TbUser;
-import com.funtl.oauth2.server.mapper.TbUserMapper;
-import com.funtl.oauth2.server.service.TbUserService;
+import com.vvdd.oauth2.server.domain.TbUser;
+import com.vvdd.oauth2.server.mapper.TbUserMapper;
+import com.vvdd.oauth2.server.service.TbUserService;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -186,17 +183,17 @@ WHERE u.id = <yourUserId>
 
 
 
-### [#](https://www.funtl.com/zh/spring-security-oauth2/基于-RBAC-的自定义认证.html#自定义认证授权实现类)自定义认证授权实现类
+### 自定义认证授权实现类
 
 创建一个类，实现 `UserDetailsService` 接口，代码如下：
 
 ```java
-package com.funtl.oauth2.server.config.service;
+package com.vvdd.oauth2.server.config.service;
 
-import com.funtl.oauth2.server.domain.TbPermission;
-import com.funtl.oauth2.server.domain.TbUser;
-import com.funtl.oauth2.server.service.TbPermissionService;
-import com.funtl.oauth2.server.service.TbUserService;
+import com.vvdd.oauth2.server.domain.TbPermission;
+import com.vvdd.oauth2.server.domain.TbUser;
+import com.vvdd.oauth2.server.service.TbPermissionService;
+import com.vvdd.oauth2.server.service.TbUserService;
 import org.assertj.core.util.Lists;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -218,7 +215,7 @@ import java.util.List;
  * @author Lusifer
  * @version v1.0.0
  * @date 2019-04-04 23:57:04
- * @see com.funtl.oauth2.server.config
+ * @see com.vvdd.oauth2.server.config
  */
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -264,9 +261,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 - `@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)`：全局方法拦截
 
 ```java
-package com.funtl.oauth2.server.config;
+package com.vvdd.oauth2.server.config;
 
-import com.funtl.oauth2.server.config.service.UserDetailsServiceImpl;
+import com.vvdd.oauth2.server.config.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -308,7 +305,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 增加了 Mapper 的包扫描配置
 
 ```java
-package com.funtl.oauth2;
+package com.vvdd.oauth2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -323,10 +320,10 @@ import tk.mybatis.spring.annotation.MapperScan;
  * @author Lusifer
  * @version v1.0.0
  * @date 2019-04-01 16:06:45
- * @see com.funtl.oauth2
+ * @see com.vvdd.oauth2
  */
 @SpringBootApplication
-@MapperScan(basePackages = "com.funtl.oauth2.server.mapper")
+@MapperScan(basePackages = "com.vvdd.oauth2.server.mapper")
 public class OAuth2ServerApplication {
 
     public static void main(String[] args) {
@@ -366,7 +363,7 @@ server:
   port: 8080
 
 mybatis:
-  type-aliases-package: com.funtl.oauth2.server.domain
+  type-aliases-package: com.vvdd.oauth2.server.domain
   mapper-locations: classpath:mapper/*.xml
 ```
 
@@ -377,23 +374,23 @@ mybatis:
 打开浏览器，输入地址：
 
 ```text
-http://localhost:8080/oauth/authorize?client_id=client&response_type=code
+/oauth/authorize?client_id=client&response_type=code
 ```
 
 
 
 第一次访问会跳转到登录页面
 
-![img](https://www.funtl.com/assets1/Lusifer_20190401195014.png)
+![img](../../static/zh/spring-security-oauth2/25-001.png)
 
 验证成功后会询问用户是否授权客户端
 
-![img](https://www.funtl.com/assets1/Lusifer_20190401195129.png)
+![img](../../static/zh/spring-security-oauth2/25-002.png)
 
 选择授权后会跳转到我的博客，浏览器地址上还会包含一个授权码（`code=1JuO6V`），浏览器地址栏会显示如下地址：
 
 ```text
-http://www.funtl.com/?code=1JuO6V
+http://www.vvdd.com/?code=1JuO6V
 ```
 
 
@@ -410,7 +407,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'grant_type
 
 
 
-![img](https://www.funtl.com/assets1/Lusifer_20190402232952.png)
+![img](../../static/zh/spring-security-oauth2/25-003.png)
 
 得到响应结果如下：
 
@@ -427,4 +424,4 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'grant_type
 
 操作成功后数据库 `oauth_access_token` 表中会增加一笔记录，效果图如下：
 
-![img](https://www.funtl.com/assets1/Lusifer_20190403150529.png)
+![img](../../static/zh/spring-security-oauth2/25-004.png)

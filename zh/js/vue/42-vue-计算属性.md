@@ -60,7 +60,7 @@
 
 仔细看图中说明，观察其中的差异
 
-![42-001](/Users/leizhenjie/Documents/GitHub/document/static/zh/js/vue/42-001.png)
+![42-001](../../../static/zh/js/vue/42-001.png)
 
 ### 结论
 

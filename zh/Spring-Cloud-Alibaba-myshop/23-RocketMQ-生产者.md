@@ -21,7 +21,7 @@ Spring Cloud Stream 内部有两个概念：
 
 Binding 在消息中间件与应用程序提供的 Provider 和 Consumer 之间提供了一个桥梁，实现了开发者只需使用应用程序的 Provider 或 Consumer 生产或消费数据即可，屏蔽了开发者与底层消息中间件的接触。
 
-![23-001](/Users/leizhenjie/Documents/GitHub/document/static/zh/spring-cloud-alibaba-myshop/23-001.png)
+![23-001](../../static/zh/spring-cloud-alibaba-myshop/23-001.png)
 
 ## 解决连接超时问题
 
@@ -29,7 +29,7 @@ Binding 在消息中间件与应用程序提供的 Provider 和 Consumer 之间�
 
 注意下图中的 IP 地址，这个是容器的 IP，开发机与容器不在一个局域网所以无法连接。
 
-![23-002](/Users/leizhenjie/Documents/GitHub/document/static/zh/spring-cloud-alibaba-myshop/23-002.png)
+![23-002](../../static/zh/spring-cloud-alibaba-myshop/23-002.png)
 
 解决方案是在 `broker.conf` 配置文件中增加 `brokerIP1=宿主机IP` 即可
 

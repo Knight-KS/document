@@ -57,7 +57,7 @@ apollo-quick-start    | ==== starting service ====
 apollo-quick-start    | Service logging file is ./service/apollo-service.log
 apollo-quick-start    | Started [45]
 apollo-quick-start    | Waiting for config service startup.......
-apollo-quick-start    | Config service started. You may visit http://localhost:8080 for service status now!
+apollo-quick-start    | Config service started. You may visit  for service status now!
 apollo-quick-start    | Waiting for admin service startup......
 apollo-quick-start    | Admin service started
 apollo-quick-start    | ==== starting portal ====

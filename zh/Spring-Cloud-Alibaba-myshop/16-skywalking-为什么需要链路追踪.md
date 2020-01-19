@@ -4,11 +4,11 @@
 
 微服务架构是通过业务来划分服务的，使用 REST 调用。对外暴露的一个接口，可能需要很多个服务协同才能完成这个接口功能，如果链路上任何一个服务出现问题或者网络超时，都会形成导致接口调用失败。随着业务的不断扩张，服务之间互相调用会越来越复杂。
 
-![img](https://www.funtl.com/assets/2279594-dd72907e82f89fd6.png)
+![img](../../static/zh/spring-cloud-alibaba-myshop/16-001.png)
 
 随着服务的越来越多，对调用链的分析会越来越复杂。它们之间的调用关系也许如下：
 
-![img](https://www.funtl.com/assets/2279594-4b7d1b6abe595390.png)
+![img](../../static/zh/spring-cloud-alibaba-myshop/16-002.png)
 
 面对以上情况，我们就需要一些可以帮助理解系统行为、用于分析性能问题的工具，以便发生故障的时候，能够快速定位和解决问题，这就是所谓的 APM（应用性能管理）。
 
@@ -16,7 +16,7 @@
 
 目前主要的一些 APM 工具有: Cat、Zipkin、Pinpoint、SkyWalking；Apache SkyWalking 是观察性分析平台和应用性能管理系统。提供分布式追踪、服务网格遥测分析、度量聚合和可视化一体化解决方案。
 
-![img](https://www.funtl.com/assets1/Lusifer_2019011401370001.jpeg)
+![img](../../static/zh/spring-cloud-alibaba-myshop/16-003.png)
 
 - **Skywalking Agent：** 使用 JavaAgent 做字节码植入，无侵入式的收集，并通过 HTTP 或者 gRPC 方式发送数据到 SkyWalking Collector。
 - **SkyWalking Collector：** 链路数据收集器，对 agent 传过来的数据进行整合分析处理并落入相关的数据存储中。

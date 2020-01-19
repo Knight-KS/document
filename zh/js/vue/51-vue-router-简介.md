@@ -100,7 +100,7 @@ export default new Router({
 
 
 
-### [#](https://www.funtl.com/zh/vue-router/#配置路由)配置路由
+### 配置路由
 
 修改 `main.js` 入口文件，增加配置路由的相关代码
 

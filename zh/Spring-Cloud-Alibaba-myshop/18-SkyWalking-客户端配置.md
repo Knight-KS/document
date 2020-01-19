@@ -10,13 +10,13 @@
 
 探针文件在 `apache-skywalking-apm-incubating/agent` 目录下
 
-![img](https://www.funtl.com/assets1/Lusifer_20190114033410.png)
+![img](../../static/zh/spring-cloud-alibaba-myshop/18-001.png)
 
 ## IDEA 部署探针
 
 继续之前的案例项目，创建一个名为 `hello-spring-cloud-external-skywalking` 的目录，并将 `agent` 整个目录拷贝进来
 
-![img](https://www.funtl.com/assets1/Lusifer_20190114034146.png)
+![img](../../static/zh/spring-cloud-alibaba-myshop/18-002.png)
 
 修改项目的 VM 运行参数，点击菜单栏中的 `Run` -> `EditConfigurations...`，此处我们以 `nacos-provider` 项目为例，修改参数如下
 
@@ -28,7 +28,7 @@
 
 
 
-![img](https://www.funtl.com/assets1/Lusifer_20190114034730.png)
+![img](../../static/zh/spring-cloud-alibaba-myshop/18-003.png)
 
 - `-javaagent`：用于指定探针路径
 - `-Dskywalking.agent.service_name`：用于重写 `agent/config/agent.config` 配置文件中的服务名

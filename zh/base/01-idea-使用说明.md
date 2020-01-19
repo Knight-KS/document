@@ -31,34 +31,34 @@ IDEA 全称 IntelliJ IDEA，是 Java 语言开发的集成环境，IntelliJ 在�
 
 ## 新建 Java Web 项目
 打开 `IDEA` -> `Create New Project`
-![Create New Project ](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-001.png)
+![Create New Project ](../../static/zh/base/01-001.png)
 选择 `Java` -> `Java EE` -> `Web Application`
-![Web Application ](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-002.png)
+![Web Application ](../../static/zh/base/01-002.png)
 ## 选择工作空间
 项目命名后选择存放的工作空间，项目就创建完成了
-![Project Structure ](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-003.png)
+![Project Structure ](../../static/zh/base/01-003.png)
 ## 配置 JDK
 选择 `File` -> `Project Structure...` -> `Project`
-![Project Structure ](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-004.png)
+![Project Structure ](../../static/zh/base/01-004.png)
 选择 JDK 的安装路径即可
-![JDK](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-005.png)
+![JDK](../../static/zh/base/01-005.png)
 ## 配置 Tomcat
 选择 `Run` -> `Edit Configurations...`
-![JDK](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-006.png)
+![JDK](../../static/zh/base/01-006.png)
 选择 `+ 号` -> `Tomcat Server` -> `Local`
-![JDK](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-007.png)
+![JDK](../../static/zh/base/01-007.png)
 选择 Tomcat 的安装路径即可
-![Server](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-008.png)
+![Server](../../static/zh/base/01-008.png)
 ## 配置 Tomcat 本地部署
 继续上一步，选择 `Deployment` -> `+ 号` -> `Artifact...`
-![Server](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-009.png)
-![Server](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-010.png)
+![Server](../../static/zh/base/01-009.png)
+![Server](../../static/zh/base/01-010.png)
 选择 `Server` 配置自动更新
-![Server](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-011.png)
+![Server](../../static/zh/base/01-011.png)
 ## 测试运行
 选择需要运行的项目，点击 `运行` 图标
-![运行](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/01-012.png)
-浏览器打开：`http://localhost:8080` 显示如下
+![运行](../../static/zh/base/01-012.png)
+浏览器打开：`` 显示如下
 ```
 $END$
 ```

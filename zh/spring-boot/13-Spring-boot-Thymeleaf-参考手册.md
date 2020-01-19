@@ -13,7 +13,7 @@
 | @{} 表达式中使用超链接    | `<link rel="stylesheet" type="text/css" media="all"href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />`     |
 | -                 | -                                                                                                                    |
 | ${}              | 表达式中基本对象                                                                                                              |
-| param              | 获取请求参数，比如 ${param.name}, http://localhost:8080?name=jeff                                                           |
+| param              | 获取请求参数，比如 ${param.name}, ?name=jeff                                                           |
 | session            | 获取 session 的属性                                                                                                        |
 | application        | 获取 application 的属性                                                                                                    |
 | execInfo           | 有两个属性 templateName 和 now (是 java 的 Calendar 对象)                                                                     |

@@ -2,7 +2,7 @@
 ## 部署图
 单点登录涉及 `sso` 认证中心与众子系统，子系统与 `sso` 认证中心需要通信以交换令牌、校验令牌及发起注销请求，因而子系统必须集成 `sso` 的客户端，`sso` 认证中心则是 `sso` 服务端，整个单点登录过程实质是 `sso` 客户端与服务端通信的过程，用下图描述
 
-![sso](https://raw.githubusercontent.com/lll124/document/master/static/zh/spring-cloud-itoken-codeing/20-001.png)
+![sso](../../static/zh/spring-cloud-itoken-codeing/20-001.png)
 
 `sso` 认证中心与 `sso` 客户端通信方式有多种，`HttpClient`，`WebService`、`rpc`、`restful api` 都可以
 

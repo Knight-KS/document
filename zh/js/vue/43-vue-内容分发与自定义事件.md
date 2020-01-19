@@ -2,7 +2,7 @@
 
 ## Vue 中的内容分发
 
-在 Vue.js 中我们使用 `` 元素作为承载分发内容的出口，作者称其为 `插槽`，可以应用在组合组件的场景中
+在 Vue.js 中我们使用  元素作为承载分发内容的出口，作者称其为 `插槽`，可以应用在组合组件的场景中
 
 ### 利用插槽功能实现一个组合组件
 
@@ -77,7 +77,7 @@ var vm = new Vue({
 
 #### 测试效果
 
-![43-001](/Users/leizhenjie/Documents/GitHub/document/static/zh/js/vue/43-001.png)
+![43-001](../../../static/zh/js/vue/43-001.png)
 
 ## 使用自定义事件删除待办事项
 
@@ -137,9 +137,9 @@ Vue.component('todo-items', {
 
 ### 测试效果
 
-![43-002](/Users/leizhenjie/Documents/GitHub/document/static/zh/js/vue/43-002.png)
+![43-002](../../../static/zh/js/vue/43-002.png)
 
-![43-003](/Users/leizhenjie/Documents/GitHub/document/static/zh/js/vue/43-003.png)
+![43-003](../../../static/zh/js/vue/43-003.png)
 
 ## 完整的 HTML
 

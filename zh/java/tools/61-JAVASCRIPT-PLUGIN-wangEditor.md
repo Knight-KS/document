@@ -32,7 +32,7 @@ editor.create();
 ```
 ## 效果演示
 配置完成后，在浏览器端显示如下：
-![效果演示](https://raw.githubusercontent.com/lll124/document/master/static/zh/java/tools/61-001.png)
+![效果演示](../../../static/zh/java/tools/61-001.png)
 
 
 

@@ -1,7 +1,7 @@
 # 使用 Nginx 解决跨域问题
 ## 概述
 在浏览器端进行 Ajax 请求时会出现跨域问题，那么什么是跨域，如何解决跨域呢？先看浏览器端出现跨域问题的现象，如下图所示
-![404](https://raw.githubusercontent.com/lll124/document/master/static/zh/nginx/05-001.png)
+![404](../../static/zh/nginx/05-001.png)
 ## 什么是跨域问题？
 跨域，指的是浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对 JavaScript 施加的安全限制。
 

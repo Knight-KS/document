@@ -22,7 +22,7 @@ spring-cloud-starter-alibaba-nacos-config 在加载配置的时候，不仅仅�
 
 增加一个名为 `nacos-provider-config-prod.yaml` 的配置
 
-![img](https://www.funtl.com/assets1/Lusifer_20190111041121.png)
+![img](../../static/zh/spring-cloud-alibaba-myshop/15-001.png)
 
 **注意：此时，我将配置文件中的端口由 `8081` -> `8082`**
 
@@ -49,12 +49,12 @@ spring.cloud.nacos.config.server-addr=127.0.0.1:8848
 
 - `Run` -> `Edit Configurations..`
 
-![img](https://www.funtl.com/assets1/Lusifer_20190111043201.png)
+![img](../../static/zh/spring-cloud-alibaba-myshop/15-002.png)
 
 - 设置需要激活的配置
 
-![img](https://www.funtl.com/assets1/Lusifer_20190111043322.png)
+![img](../../static/zh/spring-cloud-alibaba-myshop/15-003.png)
 
 - 观察日志，判断是否成功加载配置
 
-![img](https://www.funtl.com/assets1/Lusifer_20190111043538.png)
+![img](../../static/zh/spring-cloud-alibaba-myshop/15-004.png)

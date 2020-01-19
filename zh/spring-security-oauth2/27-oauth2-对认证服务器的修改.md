@@ -4,7 +4,7 @@
 
 ## 概述
 
-在开发资源服务器之前，我们需要对 [创建认证服务器](https://www.funtl.com/zh/spring-security-oauth2/创建认证服务器模块) 章节的配置进行小量修改，需要修改的内容如下：
+在开发资源服务器之前，我们需要对 **创建认证服务器** 的配置进行小量修改，需要修改的内容如下：
 
 - 删除 `spring-boot-starter-security` 依赖，因为 `spring-cloud-starter-oauth2` 包含了该依赖
 - 解决访问 `/oauth/check_token` 端点的 403 问题
@@ -21,13 +21,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.funtl</groupId>
+        <groupId>com.vvdd</groupId>
         <artifactId>spring-security-oauth2</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
     <artifactId>spring-security-oauth2-server</artifactId>
-    <url>http://www.funtl.com</url>
+    <url>http://www.vvdd.com</url>
 
     <licenses>
         <license>
@@ -99,7 +99,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.funtl.oauth2.OAuth2ServerApplication</mainClass>
+                    <mainClass>com.vvdd.oauth2.OAuth2ServerApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
@@ -127,9 +127,9 @@ public void configure(WebSecurity web) throws Exception {
 完整代码如下：
 
 ```java
-package com.funtl.oauth2.server.config;
+package com.vvdd.oauth2.server.config;
 
-import com.funtl.oauth2.server.config.service.UserDetailsServiceImpl;
+import com.vvdd.oauth2.server.config.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

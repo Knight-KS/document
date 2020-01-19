@@ -131,7 +131,7 @@ shell
 ## 使用 Runner
 ### GitLab CI 地址与令牌参数
 `项目` –> `设置` –> `CI/CD` –> `Runner 设置`
-![27-001](27-001.png)
+![27-001](../../static/zh/Spring-Boot-Dubbo-Zookeeper/27-001.png)
 
 
 ### `.gitlab-ci.yml`
@@ -216,7 +216,7 @@ deploy_production:
 
 ## 测试集成效果
 所有操作完成后 push 代码到服务器，查看是否成功：
-![27-002](27-002.png)
+![27-002](../../static/zh/Spring-Boot-Dubbo-Zookeeper/27-002.png)
 
 
 passed 表示执行成功

@@ -7,4 +7,4 @@ Fiddler 的左下角有一个命令行工具叫做 QuickExec，允许你直接�
 - `?.png`：用来选择 png 后缀的图片
 - `bpu`：截获 Request
 
-![58-001](58-001.png)
+![58-001](../../static/zh/spring-cloud-itoken-codeing/58-001.png)

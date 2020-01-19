@@ -12,7 +12,7 @@ Nik Collection 很多人把它翻译成“尼康专业图像处理套装”，�
 - Dfine 2（降噪滤镜）
 
 以下是每个软件介绍，
-![Nik Collection ](https://raw.githubusercontent.com/lll124/document/master/static/zh/lamb/camera/nikon/01-001.jpg)
+![Nik Collection ](../../static/zh/lamb/camera/nikon/01-001.jpg)
 
 我强烈推荐没用过这套软件的朋友尝试一下，为它上手非常简单，但是有很多很酷的功能，我也会找时间写一些简单的教程和实用的体验分享给大家。
 

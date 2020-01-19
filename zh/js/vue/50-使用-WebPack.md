@@ -14,7 +14,7 @@
 
 ## 目录结构
 
-![50-001](/Users/leizhenjie/Documents/GitHub/document/static/zh/js/vue/50-001.png)
+![50-001](../../../static/zh/js/vue/50-001.png)
 
 ## 模块代码
 

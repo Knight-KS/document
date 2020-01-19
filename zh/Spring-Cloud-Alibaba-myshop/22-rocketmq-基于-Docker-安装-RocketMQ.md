@@ -173,5 +173,5 @@ flushDiskType=ASYNC_FLUSH
 
 访问 http://rmqIP:8080 登入控制台
 
-![22-001](/Users/leizhenjie/Documents/GitHub/document/static/zh/spring-cloud-alibaba-myshop/22-001.png)
+![22-001](../../static/zh/spring-cloud-alibaba-myshop/22-001.png)
 

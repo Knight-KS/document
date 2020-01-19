@@ -6,24 +6,24 @@
 
 ## 集中式工作流
 如果你的开发团队成员已经很熟悉 Subversion，集中式工作流让你无需去适应一个全新流程就可以体验 Git 带来的收益。这个工作流也可以作为向更 Git 风格工作流迁移的友好过渡。
-![集中式工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/03-001.png)
+![集中式工作流](../../static/zh/git/03-001.png)
 
 
 ## 功能分支工作流
 功能分支工作流以集中式工作流为基础，不同的是为各个新功能分配一个专门的分支来开发。这样可以在把新功能集成到正式项目前，用 Pull Requests 的方式讨论变更。
-![功能分支工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/03-002.png)
+![功能分支工作流](../../static/zh/git/03-002.png)
 
 
 ## GitFlow 工作流
 GitFlow 工作流通过为功能开发、发布准备和维护分配独立的分支，让发布迭代过程更流畅。严格的分支模型也为大型项目提供了一些非常必要的结构。
 
-![GitFlow 工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/03-003.png)
+![GitFlow 工作流](../../static/zh/git/03-003.png)
 
 ## Forking 工作流
 Forking 工作流是分布式工作流，充分利用了 Git 在分支和克隆上的优势。可以安全可靠地管理大团队的开发者（developer），并能接受不信任贡献者（contributor）的提交。
-![Forking 工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/03-004.png)
+![Forking 工作流](../../static/zh/git/03-004.png)
 
 ## Pull Requests
 Pull requests 让开发者更方便地进行协作的功能，提供了友好的 Web 界面可以在提议的修改合并到正式项目之前对修改进行讨论。
-![Pull Requests](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/03-005.png)
+![Pull Requests](../../static/zh/git/03-005.png)
 

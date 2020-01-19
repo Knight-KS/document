@@ -90,4 +90,4 @@ Druid 提供了大量的监控数据，只需要在 `web.xml` 中配置一个 Se
     <url-pattern>/druid/*</url-pattern>
 </servlet-mapping>
 ```
-打开浏览器，输入：`http://localhost:8080/druid/index.html` 浏览器显示效果如下：
+打开浏览器，输入：`/druid/index.html` 浏览器显示效果如下：

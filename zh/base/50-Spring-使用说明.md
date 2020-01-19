@@ -9,7 +9,7 @@ Spring 根据代码的功能特点，将降低耦合度的方式分为了两类�
 Spring 是于 2003 年兴起的一个轻量级的 Java 开发框架，它是为了解决企业应用开发的复杂性而创建的。Spring 的核心是控制反转（IoC）和面向切面编程（AOP）。简单来说，Spring 是一个分层的 Java SE/EE full-stack(一站式)轻量级开源框架。
 
 ## Spring 体系结构
-![Spring 体系结构](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/50-001.png)
+![Spring 体系结构](../../static/zh/base/50-001.png)
 Spring 由 20 多个模块组成，它们可以分为数据访问/集成（Data Access/Integration）、Web、面向切面编程（AOP, Aspects）、应用服务器设备管理（Instrumentation）、消息发送（Messaging）、核心容器（Core Container）和测试（Test）。
 
 ## Spring 的特点

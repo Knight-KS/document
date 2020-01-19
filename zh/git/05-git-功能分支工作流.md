@@ -1,6 +1,6 @@
 # 功能分支工作流
 ## 概述
-![功能分支工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/05-001.png)
+![功能分支工作流](../../static/zh/git/05-001.png)
 
 一旦你玩转了集中式工作流，在开发过程中可以很简单地加上功能分支，用来鼓励开发者之间协作和简化交流。
 
@@ -26,7 +26,7 @@ Code Review 是 Pull Requests 的一个重要的收益，但 Pull Requests 目�
 下面的示例演示了如何把 Pull Requests 作为 Code Review 的方式，但注意 Pull Requests 可以用于很多其它的目的。
 
 ## 小红开始开发一个新功能
-![功能分支工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/05-002.png)
+![功能分支工作流](../../static/zh/git/05-002.png)
 
 在开始开发功能前，小红需要一个独立的分支。使用下面的命令新建一个分支：
 ```
@@ -39,7 +39,7 @@ git add
 git commit
 ```
 ## 小红要去吃个午饭
-![功能分支工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/05-003.png)
+![功能分支工作流](../../static/zh/git/05-003.png)
 
 早上小红为新功能添加一些提交。去吃午饭前，push 功能分支到中央仓库是很好的做法，这样可以方便地备份，如果和其它开发协作，也让他们可以看到小红的提交。
 ```
@@ -48,7 +48,7 @@ git push -u origin marys-feature
 这条命令 `push marys-feature` 分支到中央仓库（origin），`-u` 选项设置本地分支去跟踪远程对应的分支。设置好跟踪的分支后，小红就可以使用 `git push` 命令省去指定推送分支的参数。
 
 ## 小红完成功能开发
-![功能分支工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/05-004.png)
+![功能分支工作流](../../static/zh/git/05-004.png)
 
 小红吃完午饭回来，完成整个功能的开发。在合并到 master 之前，她发起一个 Pull Request 让团队的其它人知道功能已经完成。但首先，她要确认中央仓库中已经有她最近的提交：
 ```
@@ -57,19 +57,19 @@ git push
 然后，在她的 Git GUI 客户端中发起 Pull Request，请求合并 marys-feature 到 master，团队成员会自动收到通知。Pull Request 很酷的是可以在相关的提交旁边显示评注，所以你可以很对某个变更集提问。
 
 ## 小黑收到 Pull Request
-![功能分支工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/05-005.png)
+![功能分支工作流](../../static/zh/git/05-005.png)
 
 小黑收到了 Pull Request 后会查看 marys-feature 的修改。决定在合并到正式项目前是否要做些修改，且通过 Pull Request 和小红来回地讨论。
 
 ## 小红再做修改
-![功能分支工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/05-006.png)
+![功能分支工作流](../../static/zh/git/05-006.png)
 
 要再做修改，小红用和功能第一个迭代完全一样的过程。编辑、暂存、提交并push更新到中央仓库。小红这些活动都会显示在 Pull Request 上，小黑可以断续做评注。
 
 如果小黑有需要，也可以把 marys-feature 分支拉到本地，自己来修改，他加的提交也会一样显示在 Pull Request 上。
 
 ## 小红发布她的功能
-![功能分支工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/05-007.png)
+![功能分支工作流](../../static/zh/git/05-007.png)
 
 一旦小黑可以的接受 Pull Request，就可以合并功能到稳定项目代码中（可以由小黑或是小红来做这个操作）：
 ```

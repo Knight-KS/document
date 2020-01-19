@@ -10,7 +10,7 @@ Spring Web MVC 框架提供了 MVC (模型 - 视图 - 控制器) 架构和用于
 
 ## DispatcherServlet 组件类
 Spring Web MVC 框架是围绕 DispatcherServlet 设计的，它处理所有的 HTTP 请求和响应。 Spring Web MVC DispatcherServlet 的请求处理工作流如下图所示：
-![DispatcherServlet 组件类](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/60-001.png)
+![DispatcherServlet 组件类](../../static/zh/base/60-001.png)
 以下是对应于到 DispatcherServlet 的传入 HTTP 请求的事件顺序：
 
 - 在接收到 HTTP 请求后，DispatcherServlet 会查询 HandlerMapping 以调用相应的 Controller。

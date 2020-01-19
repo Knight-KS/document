@@ -38,10 +38,10 @@ dubbo:
 ## 测试负载均衡
 ### 修改 UserServiceImpl 代码为
 ```
-package com.funtl.hello.dubbo.service.user.provider.api.impl;
+package com.vvdd.hello.dubbo.service.user.provider.api.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.funtl.hello.dubbo.service.user.api.UserService;
+import com.vvdd.hello.dubbo.service.user.api.UserService;
 import org.springframework.beans.factory.annotation.Value;
 
 @Service(version = "${user.service.version}")
@@ -75,12 +75,12 @@ Hello Dubbo , i am from port:12346
 ## 附：在 IDEA 中配置一个工程启动多个实例
 ### 步骤一
 点击 `Run` -> `Edit Configurations...`
-![15-001](15-001.png)
+![15-001](../../static/zh/Spring-Boot-Dubbo-Zookeeper/15-001.png)
 
 
 ### 步骤二
 选择需要启动多实例的项目并去掉 `Single instance only` 前面的勾
-![15-002](15-002.png)
+![15-002](../../static/zh/Spring-Boot-Dubbo-Zookeeper/15-002.png)
 
 
 

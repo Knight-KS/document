@@ -8,7 +8,7 @@
 
 > 使用 NPM 安装相关组件依赖时可能会遇到权限问题，此时使用 PowerShell 管理员模式运行即可；开始菜单 -> 鼠标右击 -> Windows PowerShell (管理员)
 
-![img](https://www.funtl.com/assets1/Lusifer_20190216235700.png)
+![img](../../../static/zh/js/vue/52-001.png)
 
 创建一个名为 `hello-vue` 的工程
 
@@ -19,7 +19,7 @@ vue init webpack hello-vue
 
 
 
-![img](https://www.funtl.com/assets1/Lusifer_20190217002847.png)
+![img](../../../static/zh/js/vue/52-002.png)
 
 ## 安装依赖
 
@@ -57,7 +57,7 @@ npm run dev
 
 ## 运行效果
 
-在浏览器打开 http://localhost:8080 你会看到如下效果
+在浏览器打开  你会看到如下效果
 
 
 

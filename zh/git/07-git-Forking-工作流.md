@@ -1,6 +1,6 @@
 # Forking工作流
 Forking 工作流和前面讨论的几种工作流有根本的不同。这种工作流不是使用单个服务端仓库作为『中央』代码基线，而让各个开发者都有一个服务端仓库。这意味着各个代码贡献者有 2 个 Git 仓库而不是 1 个：一个本地私有的，另一个服务端公开的。
-![Forking工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/07-001.png)
+![Forking工作流](../../static/zh/git/07-001.png)
 
 
 
@@ -25,7 +25,7 @@ Forking 工作流的一个主要优势是，贡献的代码可以被集成，而
 
 ## 示例
 ## 项目维护者初始化正式仓库
-![Forking工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/07-002.png)
+![Forking工作流](../../static/zh/git/07-002.png)
 
 和任何使用 Git 项目一样，第一步是创建在服务器上一个正式仓库，让所有团队成员都可以访问到。通常这个仓库也会作为项目维护者的公开仓库。
 
@@ -37,14 +37,14 @@ git init --bare /path/to/repo.git
 Bitbucket 和 Stash 提供了一个方便的 GUI 客户端以完成上面命令行做的事。这个搭建中央仓库的过程和前面提到的工作流完全一样。如果有现存的代码库，维护者也要 push 到这个仓库中。
 
 ## 开发者 fork 正式仓库
-![Forking工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/07-003.png)
+![Forking工作流](../../static/zh/git/07-003.png)
 
 其它所有的开发需要 fork 正式仓库。可以用 git clone 命令用 SSH 协议连通到服务器，拷贝仓库到服务器另一个位置 —— 是的，fork 操作基本上就只是一个服务端的克隆。Bitbucket 和 Stash 上可以点一下按钮就让开发者完成仓库的 fork 操作。
 
 这一步完成后，每个开发都在服务端有一个自己的仓库。和正式仓库一样，这些仓库应该是裸仓库。
 
 ## 开发者克隆自己 fork 出来的仓库
-![Forking工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/07-004.png)
+![Forking工作流](../../static/zh/git/07-004.png)
 
 下一步，各个开发者要克隆自己的公开仓库，用熟悉的 git clone 命令。
 
@@ -63,7 +63,7 @@ git remote add upstream https://user@bitbucket.org/maintainer/repo.git
 这时在克隆和 pull 正式仓库时，需要提供用户的密码。
 
 ## 开发者开发自己的功能
-![Forking工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/07-005.png)
+![Forking工作流](../../static/zh/git/07-005.png)
 
 在刚克隆的本地仓库中，开发者可以像其它工作流一样的编辑代码、提交修改和新建分支：
 ```
@@ -78,7 +78,7 @@ git pull upstream master
 由于开发者应该都在专门的功能分支上工作，pull 操作结果会都是快进合并。
 
 ## 开发者发布自己的功能
-![Forking工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/07-006.png)
+![Forking工作流](../../static/zh/git/07-006.png)
 
 一旦开发者准备好了分享新功能，需要做二件事。首先，通过push他的贡献代码到自己的公开仓库中，让其它的开发者都可以访问到。他的 origin 远程别名应该已经有了，所以要做的就是：
 ```
@@ -89,7 +89,7 @@ git push origin feature-branch
 第二件事，开发者要通知项目维护者，想要合并他的新功能到正式库中。Bitbucket 和 Stash 提供了 Pull Request 按钮，弹出表单让你指定哪个分支要合并到正式仓库。一般你会想集成你的功能分支到上游远程仓库的 master 分支中。
 
 ## 项目维护者集成开发者的功能
-![Forking工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/07-007.png)
+![Forking工作流](../../static/zh/git/07-007.png)
 
 当项目维护者收到 pull request，他要做的是决定是否集成它到正式代码库中。有二种方式来做：
 
@@ -110,7 +110,7 @@ git push origin master
 注意，维护者的 origin 是指向他自己公开仓库的，即是项目的正式代码库。到此，开发者的贡献完全集成到了项目中
 
 ## 开发者和正式仓库做同步
-![Forking工作流](https://raw.githubusercontent.com/lll124/document/master/static/zh/git/07-008.png)
+![Forking工作流](../../static/zh/git/07-008.png)
 
 由于正式代码库往前走了，其它的开发需要和正式仓库做同步：
 ```

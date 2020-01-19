@@ -1,19 +1,19 @@
 # Solr-的基本操作
 ## 功能界面
 ### Dashboard
-![03-001](03-001.png)
+![03-001](../../static/zh/solr/03-001.png)
 
 ### Logging
-![03-001](03-002.png)
+![03-001](../../static/zh/solr/03-002.png)
 
 ### Core Admin
-![03-001](03-003.png)
+![03-001](../../static/zh/solr/03-003.png)
 
 ### Thread Dump
-![03-001](03-004.png)
+![03-001](../../static/zh/solr/03-004.png)
 
 ### Core
-![03-001](03-005.png)
+![03-001](../../static/zh/solr/03-005.png)
 
 ## 分析功能
 ### 修改 managed-schema 配置业务系统字段
@@ -42,7 +42,7 @@
 <copyField source="tb_item_sell_point" dest="tb_item_keywords"/>
 <copyField source="tb_item_desc" dest="tb_item_keywords"/>
 ```
-![03-001](03-006.png)
+![03-001](../../static/zh/solr/03-006.png)
 
 ## 复制配置到容器并重启
 ```
@@ -52,7 +52,7 @@ docker cp managed-schema solr:/opt/solr/server/solr/ik_core/conf
 docker-compose restart
 ```
 ### 分词效果图
-![03-001](03-007.png)
+![03-001](../../static/zh/solr/03-007.png)
 
 ## 维护功能
 维护功能即对数据库的 CRUD 操作
@@ -67,13 +67,13 @@ docker-compose restart
     "tb_item_sell_point": "清仓！仅北京，武汉仓有货！"
 }
 ```
-![03-001](03-008.png)
+![03-001](../../static/zh/solr/03-008.png)
 ### 测试查询
-![03-001](03-009.png)
+![03-001](../../static/zh/solr/03-009.png)
 
 ### 删除索引库
 设置文档类型为 XML
-![03-001](03-010.png)
+![03-001](../../static/zh/solr/03-010.png)
 
 
 ### 根据 ID 删除
@@ -92,7 +92,7 @@ docker-compose restart
 ```
 ## 查询功能
 ### 查询条件
-![03-001](03-0010.png)
+![03-001](../../static/zh/solr/03-0010.png)
 
 说明：
 
@@ -104,8 +104,8 @@ docker-compose restart
 - df：默认搜索域，如之前配置的复制域 tb_item_keywords
 
 ### 高亮显示
-![03-001](03-0011.png)
-![03-001](03-0012.png)
+![03-001](../../static/zh/solr/03-0011.png)
+![03-001](../../static/zh/solr/03-0012.png)
 
 
 

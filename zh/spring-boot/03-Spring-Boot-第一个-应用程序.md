@@ -125,7 +125,7 @@ public class HelloController {
 }
 ```
 
-启动 `HelloSpringBootApplication` 的 main() 方法，浏览器访问 `http://localhost:8080` 可以看到：
+启动 `HelloSpringBootApplication` 的 main() 方法，浏览器访问 `` 可以看到：
 ```
 Hello Spring Boot
 ```

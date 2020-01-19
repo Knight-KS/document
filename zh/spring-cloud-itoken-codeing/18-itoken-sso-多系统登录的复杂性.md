@@ -2,17 +2,17 @@
 ## 概述
 web 系统早已从久远的单系统发展成为如今由多系统组成的应用群，面对如此众多的系统，用户难道要一个一个登录、然后一个一个注销吗？就像下图描述的这样
 
-![sso](https://raw.githubusercontent.com/lll124/document/master/static/zh/spring-cloud-itoken-codeing/18-001.png)
+![sso](../../static/zh/spring-cloud-itoken-codeing/18-001.png)
 
 web 系统由单系统发展成多系统组成的应用群，复杂性应该由系统内部承担，而不是用户。无论 web 系统内部多么复杂，对用户而言，都是一个统一的整体，也就是说，用户访问 web 系统的整个应用群与访问单个系统一样，登录/注销只要一次就够了
 
-![sso](https://raw.githubusercontent.com/lll124/document/master/static/zh/spring-cloud-itoken-codeing/18-002.png)
+![sso](../../static/zh/spring-cloud-itoken-codeing/18-002.png)
 
 虽然单系统的登录解决方案很完美，但对于多系统应用群已经不再适用了，为什么呢？
 
 单系统登录解决方案的核心是 `cookie`，`cookie` 携带会话 `id` 在浏览器与服务器之间维护会话状态。但 `cookie` 是有限制的，这个限制就是 `cookie` 的域（通常对应网站的域名），浏览器发送 `http` 请求时会自动携带与该域匹配的 `cookie`，而不是所有 `cookie`
 
-![sso](https://raw.githubusercontent.com/lll124/document/master/static/zh/spring-cloud-itoken-codeing/18-003.png)
+![sso](../../static/zh/spring-cloud-itoken-codeing/18-003.png)
 
 既然这样，为什么不将 web 应用群中所有子系统的域名统一在一个顶级域名下，例如 `*.baidu.com`，然后将它们的 `cookie` 域设置为 `baidu.com`，这种做法理论上是可以的，甚至早期很多多系统登录就采用这种同域名共享 `cookie` 的方式。
 

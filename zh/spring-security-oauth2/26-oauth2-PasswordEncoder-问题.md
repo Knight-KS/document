@@ -2,7 +2,7 @@
 
 ## 问题描述
 
-按照 [基于内存存储令牌](https://www.funtl.com/zh/spring-security-oauth2/基于内存存储令牌.html) 配置成功后，携授权码使用 POST 请求认证服务器时，服务器返回错误信息
+按照 **基于内存存储令牌** 配置成功后，携授权码使用 POST 请求认证服务器时，服务器返回错误信息
 
 **版本**
 
@@ -39,7 +39,7 @@ server:
 ### WebSecurityConfiguration
 
 ```java
-package com.funtl.oauth2.server.config;
+package com.vvdd.oauth2.server.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -75,10 +75,10 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
 
-### [#](https://www.funtl.com/zh/spring-security-oauth2/PasswordEncoder.html#authorizationserverconfiguration)AuthorizationServerConfiguration
+### [#](https://www.vvdd.com/zh/spring-security-oauth2/PasswordEncoder.html#authorizationserverconfiguration)AuthorizationServerConfiguration
 
 ```java
-package com.funtl.oauth2.server.config;
+package com.vvdd.oauth2.server.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -104,7 +104,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
                 .secret(passwordEncoder.encode("secret"))
                 .authorizedGrantTypes("authorization_code")
                 .scopes("app")
-                .redirectUris("http://www.funtl.com");
+                .redirectUris("http://www.vvdd.com");
 
     }
 }
@@ -122,7 +122,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'grant_type
 
 
 
-![img](https://www.funtl.com/assets1/Lusifer_20190402232952.png)
+![img](../../static/zh/spring-security-oauth2/26-001.png)
 
 得到响应结果如下：
 

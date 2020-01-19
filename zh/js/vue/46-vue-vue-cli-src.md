@@ -4,7 +4,7 @@
 
 `src` 目录是项目的源码目录，所有代码都会写在这里
 
-![46-001](/Users/leizhenjie/Documents/GitHub/document/static/zh/js/vue/46-001.png)
+![46-001](../../../static/zh/js/vue/46-001.png)
 
 ## main.js
 

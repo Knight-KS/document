@@ -9,7 +9,7 @@ MVVM 源自于经典的 MVC（Model-View-Controller）模式（期间还演化�
 - 该层向上与视图层进行双向数据绑定
 - 向下与 Model 层通过接口请求进行数据交互
 
-![02-001](/Users/leizhenjie/Documents/GitHub/document/static/zh/js/vue/02-001.png)
+![02-001](../../../static/zh/js/vue/02-001.png)
 
 MVVM 已经相当成熟了，主要运用但不仅仅在网络应用程序开发中。当下流行的 MVVM 框架有 `Vue.js`，`AngularJS` 等。
 
@@ -24,7 +24,7 @@ MVVM 模式和 MVC 模式一样，主要目的是分离视图（View）和模型
 
 ## MVVM 的组成部分
 
-![02-002](/Users/leizhenjie/Documents/GitHub/document/static/zh/js/vue/02-002.png)
+![02-002](../../../static/zh/js/vue/02-002.png)
 
 ### View
 
@@ -43,7 +43,8 @@ ViewModel 是由前端开发人员组织生成和维护的视图数据层。在�
 - 比如页面的这一块展示什么，那一块展示什么这些都属于视图状态（展示）
 - 页面加载进来时发生什么，点击这一块发生什么，这一块滚动时发生什么这些都属于视图行为（交互）
 
-视图状态和行为都封装在了 ViewModel 里。这样的封装使得 ViewModel 可以完整地去描述 View 层`。由于实现了双向绑定，ViewModel 的内容会实时展现在 View 层，这是激动人心的，因为前端开发者再也不必低效又麻烦地通过操纵 DOM 去更新视图。
+视图状态和行为都封装在了 ViewModel 里。这样的封装使得 ViewModel 可以完整地去描述 View 层。由于实现了双向绑定，ViewModel 的内容会实时展现在 View 层，这是激动人心的，因为前端开发者再也不必低效又麻烦地通过操纵 DOM 去更新视图。
+
 
 MVVM 框架已经把最脏最累的一块做好了，我
 

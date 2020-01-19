@@ -1,5 +1,3 @@
-
-
 # 了解前后分离的演变史
 
 ## 为什么需要前后分离
@@ -10,7 +8,7 @@
 
 以 `SpringMVC` 流程为例：
 
-![01-001](/Users/leizhenjie/Documents/GitHub/document/static/zh/js/vue/01-001.png)
+![01-001](../../../static/zh/js/vue/01-001.png)
 
 - 发起请求到前端控制器(`DispatcherServlet`)
 - 前端控制器请求 `HandlerMapping` 查找 `Handler`，可以根据 `xml` 配置、注解进行查找
@@ -44,13 +42,13 @@ MVC 是一个非常好的协作模式，能够有效降低代码的耦合度，�
 
 时间回到 2005 年 `AJAX`（Asynchronous JavaScript And XML，异步 JavaScript 和 XML，老技术新用法） 被正式提出并开始使用 `CDN` 作为静态资源存储，于是出现了 JavaScript 王者归来（在这之前 JS 都是用来在网页上贴狗皮膏药广告的）的 SPA（Single Page Application）单页面应用时代。
 
-![01-002](/Users/leizhenjie/Documents/GitHub/document/static/zh/js/vue/01-002.png)
+![01-002](../../../static/zh/js/vue/01-002.png)
 
-#### [#](https://www.funtl.com/zh/vue-prepare/了解前后分离的演变史.html#优点-2)优点
+#### 优点
 
 这种模式下，**前后端的分工非常清晰，前后端的关键协作点是 `AJAX` 接口**。看起来是如此美妙，但回过头来看看的话，这与 JSP 时代区别不大。复杂度从服务端的 JSP 里移到了浏览器的 JavaScript，浏览器端变得很复杂。类似 Spring MVC，**这个时代开始出现浏览器端的分层架构**：
 
-![img](https://www.funtl.com/assets/Lusifer201812090002.png)
+![01-002](../../../static/zh/js/vue/01-003.png)
 
 #### 缺点
 
@@ -67,7 +65,7 @@ MVC 是一个非常好的协作模式，能够有效降低代码的耦合度，�
 
 为了降低前端开发复杂度，涌现了大量的前端框架，比如：`AngularJS`、`React`、`Vue.js`、`EmberJS` 等，这些框架总的原则是先按类型分层，比如 Templates、Controllers、Models，然后再在层内做切分，如下图：
 
-![01-003](/Users/leizhenjie/Documents/GitHub/document/static/zh/js/vue/01-003.png)
+![01-003](../../../static/zh/js/vue/01-004.png)
 
 #### 优点
 
@@ -86,7 +84,7 @@ MVC 是一个非常好的协作模式，能够有效降低代码的耦合度，�
 
 前端为主的 MV* 模式解决了很多很多问题，但如上所述，依旧存在不少不足之处。随着 NodeJS 的兴起，JavaScript 开始有能力运行在服务端。这意味着可以有一种新的研发模式：
 
-![01-005](/Users/leizhenjie/Documents/GitHub/document/static/zh/js/vue/01-005.jpg)
+![01-005](../../../static/zh/js/vue/01-005.jpg)
 
 在这种研发模式下，前后端的职责很清晰。对前端来说，两个 UI 层各司其职：
 

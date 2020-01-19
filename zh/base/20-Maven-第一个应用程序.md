@@ -143,7 +143,7 @@ log4j.appender.file.layout.ConversionPattern=%d %p [%c] - %m%n
 </web-app>
 ```
 ### 测试运行
-按照之前章节 第一个 IDEA 应用程序 配置完 Tomcat 后直接运行，打开浏览器访问 http://localhost:8080 显示如下：
+按照之前章节 第一个 IDEA 应用程序 配置完 Tomcat 后直接运行，打开浏览器访问  显示如下：
 ```
 Hello Maven
 ```

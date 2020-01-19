@@ -5,7 +5,7 @@
 ## 单点登录
 相比于单系统登录，sso 需要一个独立的认证中心，只有认证中心能接受用户的用户名密码等安全信息，其他系统不提供登录入口，只接受认证中心的间接授权。间接授权通过令牌实现，sso 认证中心验证用户的用户名密码没问题，创建授权令牌，在接下来的跳转过程中，授权令牌作为参数发送给各个子系统，子系统拿到令牌，即得到了授权，可以借此创建局部会话，局部会话登录方式与单系统的登录方式相同。这个过程，也就是单点登录的原理，用下图说明
 
-![sso](https://raw.githubusercontent.com/lll124/document/master/static/zh/spring-cloud-itoken-codeing/19-001.png)
+![sso](../../static/zh/spring-cloud-itoken-codeing/19-001.png)
 
 下面对上图简要描述
 
@@ -33,7 +33,7 @@
 ## 单点注销
 单点登录自然也要单点注销，在一个子系统中注销，所有子系统的会话都将被销毁，用下面的图来说明
 
-![sso](https://raw.githubusercontent.com/lll124/document/master/static/zh/spring-cloud-itoken-codeing/19-002.png)
+![sso](../../static/zh/spring-cloud-itoken-codeing/19-002.png)
 
 `sso` 认证中心一直监听全局会话的状态，一旦全局会话销毁，监听器将通知所有注册系统执行注销操作
 

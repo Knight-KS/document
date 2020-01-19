@@ -6,7 +6,7 @@
 
 **操作流程**
 
-![img](https://www.funtl.com/assets1/Lusifer_201904030001.png)
+![img](../../static/zh/spring-security-oauth2/23-001.png)
 
 - 初始化 oAuth2 相关表
 
@@ -164,7 +164,7 @@ System.out.println(new BCryptPasswordEncoder().encode("secret"));
 
 数据库配置客户端效果图如下：
 
-![img](https://www.funtl.com/assets1/Lusifer_20190403150110.png)
+![img](../../static/zh/spring-security-oauth2/23-002.png)
 
 ## POM
 
@@ -204,7 +204,7 @@ System.out.println(new BCryptPasswordEncoder().encode("secret"));
 - `@EnableAuthorizationServer`
 
 ```java
-package com.funtl.oauth2.server.config;
+package com.vvdd.oauth2.server.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
@@ -271,7 +271,7 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 - `@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)`：全局方法拦截
 
 ```java
-package com.funtl.oauth2.server.config;
+package com.vvdd.oauth2.server.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -307,7 +307,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 
 
-## [#](https://www.funtl.com/zh/spring-security-oauth2/基于-JDBC-存储令牌.html#application-yml)application.yml
+## application.yml
 
 ```yaml
 spring:
@@ -340,23 +340,23 @@ server:
 打开浏览器，输入地址：
 
 ```text
-http://localhost:8080/oauth/authorize?client_id=client&response_type=code
+/oauth/authorize?client_id=client&response_type=code
 ```
 
 
 
 第一次访问会跳转到登录页面
 
-![img](https://www.funtl.com/assets1/Lusifer_20190401195014.png)
+![img](../../static/zh/spring-security-oauth2/23-003.png)
 
 验证成功后会询问用户是否授权客户端
 
-![img](https://www.funtl.com/assets1/Lusifer_20190401195129.png)
+![img](../../static/zh/spring-security-oauth2/23-004.png)
 
 选择授权后会跳转到我的博客，浏览器地址上还会包含一个授权码（`code=1JuO6V`），浏览器地址栏会显示如下地址：
 
 ```text
-http://www.funtl.com/?code=1JuO6V
+http://www.vvdd.com/?code=1JuO6V
 ```
 
 
@@ -373,7 +373,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'grant_type
 
 1
 
-![img](https://www.funtl.com/assets1/Lusifer_20190402232952.png)
+![img](../../static/zh/spring-security-oauth2/23-005.png)
 
 得到响应结果如下：
 
@@ -390,4 +390,4 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'grant_type
 
 操作成功后数据库 `oauth_access_token` 表中会增加一笔记录，效果图如下：
 
-![img](https://www.funtl.com/assets1/Lusifer_20190403150529.png)
+![img](../../static/zh/spring-security-oauth2/23-006.png)

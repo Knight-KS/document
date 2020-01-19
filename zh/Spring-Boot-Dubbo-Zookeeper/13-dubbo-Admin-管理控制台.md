@@ -13,7 +13,7 @@ mvn clean package
 mvn --projects dubbo-admin-backend spring-boot:run
 
 # 浏览
-http://localhost:8080
+
 ```
 ## 遇到的问题处理
 ### NodeJS

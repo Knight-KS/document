@@ -4,13 +4,13 @@
 
 ## 概述
 
-在 [为什么需要 oAuth2](https://www.funtl.com/zh/spring-security-oauth2/为什么需要-oAuth2.html#名词解释) 和 [RBAC 基于角色的权限控制](https://www.funtl.com/zh/spring-security-oauth2/RBAC-基于角色的权限控制.html#目的) 章节，我们介绍过资源的概念，简单点说就是需要被访问的业务数据或是静态资源文件都可以被称作资源。
+在 **为什么需要 oAuth2**和 **RBAC 基于角色的权限控制** 中，我们介绍过资源的概念，简单点说就是需要被访问的业务数据或是静态资源文件都可以被称作资源。
 
 为了让大家更好的理解资源服务器的概念，我们单独创建一个名为 `spring-security-oauth2-resource` 资源服务器的项目，该项目的主要目的就是对数据表的 CRUD 操作，而这些操作就是对资源的操作了。
 
 **操作流程**
 
-![img](https://www.funtl.com/assets1/Lusifer_2019040703090001.png)
+![img](../../static/zh/spring-security-oauth2/28-001.png)
 
 - 初始化资源服务器数据库
 - POM 所需依赖同认证服务器
@@ -40,7 +40,7 @@ insert  into `tb_content`(`id`,`category_id`,`title`,`sub_title`,`title_desc`,`u
 (28,89,'标题','子标题','标题说明','http://www.jd.com',NULL,NULL,NULL,'2019-04-07 00:56:09','2019-04-07 00:56:11'),
 (29,89,'ad2','ad2','ad2','http://www.baidu.com',NULL,NULL,NULL,'2019-04-07 00:56:13','2019-04-07 00:56:15'),
 (30,89,'ad3','ad3','ad3','http://www.sina.com.cn',NULL,NULL,NULL,'2019-04-07 00:56:17','2019-04-07 00:56:19'),
-(31,89,'ad4','ad4','ad4','http://www.funtl.com',NULL,NULL,NULL,'2019-04-07 00:56:22','2019-04-07 00:56:25');
+(31,89,'ad4','ad4','ad4','http://www.vvdd.com',NULL,NULL,NULL,'2019-04-07 00:56:22','2019-04-07 00:56:25');
 
 CREATE TABLE `tb_content_category` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '类目ID',
@@ -82,7 +82,7 @@ insert  into `tb_content_category`(`id`,`parent_id`,`name`,`status`,`sort_order`
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.funtl</groupId>
+        <groupId>com.vvdd</groupId>
         <artifactId>spring-security-oauth2</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
@@ -160,7 +160,7 @@ insert  into `tb_content_category`(`id`,`parent_id`,`name`,`status`,`sort_order`
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.funtl.oauth2.OAuth2ResourceApplication</mainClass>
+                    <mainClass>com.vvdd.oauth2.OAuth2ResourceApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
@@ -184,7 +184,7 @@ insert  into `tb_content_category`(`id`,`parent_id`,`name`,`status`,`sort_order`
 - `@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)`：全局方法拦截
 
 ```java
-package com.funtl.oauth2.resource.config;
+package com.vvdd.oauth2.resource.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -222,14 +222,14 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 ### Application
 
 ```java
-package com.funtl.oauth2;
+package com.vvdd.oauth2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.funtl.oauth2.resource.mapper")
+@MapperScan(basePackages = "com.vvdd.oauth2.resource.mapper")
 public class OAuth2ResourceApplication {
 
     public static void main(String[] args) {
@@ -267,10 +267,10 @@ security:
     client:
       client-id: client
       client-secret: secret
-      access-token-uri: http://localhost:8080/oauth/token
-      user-authorization-uri: http://localhost:8080/oauth/authorize
+      access-token-uri: /oauth/token
+      user-authorization-uri: /oauth/authorize
     resource:
-      token-info-uri: http://localhost:8080/oauth/check_token
+      token-info-uri: /oauth/check_token
 
 server:
   port: 8081
@@ -278,7 +278,7 @@ server:
     context-path: /contents
 
 mybatis:
-  type-aliases-package: com.funtl.oauth2.resource.domain
+  type-aliases-package: com.vvdd.oauth2.resource.domain
   mapper-locations: classpath:mapper/*.xml
 
 logging:
@@ -298,23 +298,23 @@ logging:
 打开浏览器，输入地址：
 
 ```text
-http://localhost:8080/oauth/authorize?client_id=client&response_type=code
+/oauth/authorize?client_id=client&response_type=code
 ```
 
 
 
 第一次访问会跳转到登录页面
 
-![img](https://www.funtl.com/assets1/Lusifer_20190401195014.png)
+![img](../../static/zh/spring-security-oauth2/28-002.png)
 
 验证成功后会询问用户是否授权客户端
 
-![img](https://www.funtl.com/assets1/Lusifer_20190401195129.png)
+![img](../../static/zh/spring-security-oauth2/28-004.png)
 
 选择授权后会跳转到我的博客，浏览器地址上还会包含一个授权码（`code=1JuO6V`），浏览器地址栏会显示如下地址：
 
 ```text
-http://www.funtl.com/?code=1JuO6V
+http://www.vvdd.com/?code=1JuO6V
 ```
 
 
@@ -331,7 +331,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'grant_type
 
 
 
-![img](https://www.funtl.com/assets1/Lusifer_20190402232952.png)
+![img](../../static/zh/spring-security-oauth2/28-005.png)
 
 得到响应结果如下：
 
@@ -361,4 +361,4 @@ curl --location --request GET "http://localhost:8081/contents" --header "Content
 
 
 
-![img](https://www.funtl.com/assets1/Lusifer_20190407033854.png)
+![img](../../static/zh/spring-security-oauth2/28-006.png)

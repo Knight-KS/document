@@ -1,7 +1,7 @@
 # MyBatis-动态-SQL
 动态 SQL，主要用于解决查询条件不确定的情况：在程序运行期间，根据用户提交的查询条件进行查询。提交的查询条件不同，执行的 SQL 语句不同。若将每种可能的情况均逐一列出，对所有条件进行排列组合，将会出现大量的 SQL 语句。此时，可使用动态 SQL 来解决这样的问题。
 
-![MyBatis-动态-SQL](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/77-001.png)
+![MyBatis-动态-SQL](../../static/zh/base/77-001.png)
 动态 SQL，即通过 MyBatis 提供的各种标签对条件作出判断以实现动态拼接 SQL 语句。
 
 这里的条件判断使用的表达式为 OGNL 表达式。常用的动态 SQL 标签有 `<if>`、`<where>`、`<choose>`、`<foreach>` 等。
@@ -10,7 +10,7 @@
 在 mapper 的动态 SQL 中若出现大于号（`>`）、小于号（`<`）、大于等于号（`>=`），小于等于号（`<=`）等符号，最好将其转换为实体符号。否则，XML 可能会出现解析出错问题。
 
 特别是对于小于号（`<`），在 XML 中是绝对不能出现的。否则，一定出错。
-![MyBatis-符号](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/77-002.png)
+![MyBatis-符号](../../static/zh/base/77-002.png)
 
 ## if 标签
 对于该标签的执行，当 test 的值为 true 时，会将其包含的 SQL 片断拼接到其所在的 SQL 语句中。
@@ -21,7 +21,7 @@
 
 ## 定义映射文件
 为了解决两个条件均未做设定的情况，在 where 后添加了一个“1=1”的条件。这样就不至于两个条件均未设定而出现只剩下一个 where，而没有任何可拼接的条件的不完整 SQL 语句。
-![MyBatis-映射文件](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/77-003.png)
+![MyBatis-映射文件](../../static/zh/base/77-003.png)
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
@@ -222,4 +222,4 @@ public List<Student> selectByForeachWithListCustom(List<Student> students);
     </if>
 </select>
 ```
-![MyBatis-映射文件](https://raw.githubusercontent.com/lll124/document/master/static/zh/base/77-003.png)
+![MyBatis-映射文件](../../static/zh/base/77-003.png)

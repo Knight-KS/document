@@ -37,4 +37,4 @@ RocketMQ 是一款分布式、队列模型的消息中间件，具有以下特�
 
 ## 消息队列对比参照表
 
-![21-001](/Users/leizhenjie/Documents/GitHub/document/static/zh/spring-cloud-alibaba-myshop/21-001.png)
+![21-001](../../static/zh/spring-cloud-alibaba-myshop/21-001.png)

@@ -7,7 +7,7 @@ ZooKeeper 是一种分布式协调服务，用于管理大型主机。在分布�
 
 ## Zookeeper 的数据模型
 Zookeeper 的数据模型是什么样子呢？它很像数据结构当中的树，也很像文件系统的目录。
-![04-001](04-001.png)
+![04-001](../../static/zh/Spring-Boot-Dubbo-Zookeeper/04-001.png)
 
 
 树是由节点所组成，Zookeeper 的数据存储也同样是基于节点，这种节点叫做 Znode
@@ -20,7 +20,7 @@ Zookeeper 的数据模型是什么样子呢？它很像数据结构当中的树�
 这样的层级结构，让每一个 Znode 节点拥有唯一的路径，就像命名空间一样对不同信息作出清晰的隔离。
 
 ### Znode 包含哪些元素
-![04-002](04-002.png)
+![04-002](../../static/zh/Spring-Boot-Dubbo-Zookeeper/04-002.png)
 
 - data：Znode 存储的数据信息。
 - ACL：记录 Znode 的访问权限，即哪些人或哪些 IP 可以访问本节点。
@@ -62,14 +62,14 @@ getChildren
 具体交互过程如下：
 
 - 客户端调用 getData 方法，watch 参数是 true。服务端接到请求，返回节点数据，并且在对应的哈希表里插入被 Watch 的 Znode 路径，以及 Watcher 列表。
-![04-003](04-003.png)
+![04-003](../../static/zh/Spring-Boot-Dubbo-Zookeeper/04-003.png)
 
 - 当被 Watch 的 Znode 已删除，服务端会查找哈希表，找到该 Znode 对应的所有 Watcher，异步通知客户端，并且删除哈希表中对应的 Key-Value。
-![04-004](04-004.png)
+![04-004](../../static/zh/Spring-Boot-Dubbo-Zookeeper/04-004.png)
 
 ## Zookeeper 的一致性
 Zookeeper 身为分布式系统协调服务，如果自身挂了如何处理呢？为了防止单机挂掉的情况，Zookeeper 维护了一个集群。如下图：
-![04-005](04-005.png)
+![04-005](../../static/zh/Spring-Boot-Dubbo-Zookeeper/04-006.png)
 
 
 Zookeeper Service 集群是一主多从结构。
@@ -97,15 +97,12 @@ Zookeeper Atomic Broadcast，有效解决了 Zookeeper 集群崩溃恢复，以�
 Leader election
 
 选举阶段，此时集群中的节点处于 Looking 状态。它们会各自向其他节点发起投票，投票当中包含自己的服务器 ID 和最新事务 ID（ZXID）。
-![04-006](04-006.png)
-
+![04-006](../../static/zh/Spring-Boot-Dubbo-Zookeeper/04-007.png)
 
 接下来，节点会用自身的 ZXID 和从其他节点接收到的 ZXID 做比较，如果发现别人家的 ZXID 比自己大，也就是数据比自己新，那么就重新发起投票，投票给目前已知最大的 ZXID 所属节点。
-![04-007](04-007.png)
-
+![04-007](../../static/zh/Spring-Boot-Dubbo-Zookeeper/04-008.png)
 
 每次投票后，服务器都会统计投票数量，判断是否有某个节点得到半数以上的投票。如果存在这样的节点，该节点将会成为准 Leader，状态变为 Leading。其他节点的状态变为 Following。
-![04-008](04-008.png)
 
 
 Discovery
@@ -135,7 +132,7 @@ ZAB 的数据写入涉及到 Broadcast 阶段，简单来说，就是 Zookeeper 
 - Follower 接到 Propose 消息，写入日志成功后，返回 ACK 消息给 Leader。
 - Leader 接到半数以上ACK消息，返回成功给客户端，并且广播 Commit 请求给 Follower
 
-![04-009](04-009.png)
+
 
 ZAB 协议既不是强一致性，也不是弱一致性，而是处于两者之间的单调一致性（顺序一致性）。它依靠事务 ID 和版本号，保证了数据的更新和读取是有序的。
 

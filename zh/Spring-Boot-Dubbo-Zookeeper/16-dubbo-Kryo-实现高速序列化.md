@@ -43,7 +43,7 @@ Dubbo 中支持的序列化方式：
 </dependency>
 ```
 ### 增加配置
-![16-001](16-001.png)
+![16-001](../../static/zh/Spring-Boot-Dubbo-Zookeeper/16-001.png)
 
 ### 注册被序列化类
 要让 Kryo 和 FST 完全发挥出高性能，最好将那些需要被序列化的类注册到 dubbo 系统中，例如，我们可以实现如下回调接口：
@@ -137,15 +137,15 @@ double[]
 序列化生成字节码的大小是一个比较有确定性的指标，它决定了远程调用的网络传输时间和带宽占用。
 
 针对复杂对象的结果如下（数值越小越好）：
-![16-002](16-002.png)
-![16-003](16-003.png)
+![16-002](../../static/zh/Spring-Boot-Dubbo-Zookeeper/16-002.png)
+![16-003](../../static/zh/Spring-Boot-Dubbo-Zookeeper/16-003.png)
 
 
 
 # Dubbo RPC 中不同序列化响应时间和吞吐量对比
-![16-004](16-004.png)
-![16-005](16-005.png)
-![16-006](16-006.png)
+![16-004](../../static/zh/Spring-Boot-Dubbo-Zookeeper/16-004.png)
+![16-005](../../static/zh/Spring-Boot-Dubbo-Zookeeper/16-005.png)
+![16-006](../../static/zh/Spring-Boot-Dubbo-Zookeeper/16-006.png)
 
 
 

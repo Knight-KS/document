@@ -1,6 +1,6 @@
 # Dubbo-的服务治理
 ## 概述
-![10-001](10-001.png)
+![10-001](../../static/zh/Spring-Boot-Dubbo-Zookeeper/10-001.png)
 
 
 | **特性** | **描述**                                    |

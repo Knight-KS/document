@@ -83,7 +83,7 @@ public class MyTest {
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
         // 创建 HttpGet 请求
-        HttpGet httpGet = new HttpGet("http://localhost:8080/content/page?draw=1&start=0&length=10");
+        HttpGet httpGet = new HttpGet("/content/page?draw=1&start=0&length=10");
         // 设置长连接
         httpGet.setHeader("Connection", "keep-alive");
         // 设置代理（模拟浏览器版本）
@@ -158,7 +158,7 @@ public class MyTest {
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
         // 创建 HttpPost 请求
-        HttpPost httpPost = new HttpPost("http://localhost:8080/content/page");
+        HttpPost httpPost = new HttpPost("/content/page");
         // 设置长连接
         httpPost.setHeader("Connection", "keep-alive");
         // 设置代理（模拟浏览器版本）

@@ -81,7 +81,7 @@ Vue.prototype.axios = axios;
       getData: function () {
         this.axios({
           method: 'get',
-          url: 'http://localhost:8080/data.json'
+          url: '/data.json'
         }).then(function (repos) {
           console.log(repos);
         }).catch(function (error) {

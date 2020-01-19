@@ -6,9 +6,9 @@ Lombok 是一个可以通过简单的注解形式来帮助我们简化消除一�
 
 ## IDEA 安装 Lombok 插件
 IDEA 中依次点击 `File` --> `Settings` --> `Plugins` 搜索 Lombok 安装即可
-![Plugins页面](https://raw.githubusercontent.com/lll124/document/master/static/zh/java/tools/63-001.png)
+![Plugins页面](../../../static/zh/java/tools/63-001.png)
 ## 查看是否安装成功
-![安装页面](https://raw.githubusercontent.com/lll124/document/master/static/zh/java/tools/63-002.png)
+![安装页面](../../../static/zh/java/tools/63-002.png)
 
 ## 使用 Lombok
 ### POM
@@ -38,4 +38,4 @@ public class ItemCatNode implements Serializable {
     private List<?> item;
 }
 ```
-![idea 页面](https://raw.githubusercontent.com/lll124/document/master/static/zh/java/tools/63-003.png)
+![idea 页面](../../../static/zh/java/tools/63-003.png)

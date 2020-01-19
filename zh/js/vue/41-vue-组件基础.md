@@ -4,7 +4,7 @@
 
 组件是可复用的 Vue 实例，说白了就是一组可以重复使用的模板，跟 `JSTL` 的自定义标签、`Thymeleaf` 的 `th:fragment` 以及 `Sitemesh3` 框架有着异曲同工之妙。通常一个应用会以一棵嵌套的组件树的形式来组织：
 
-![41-001](/Users/leizhenjie/Documents/GitHub/document/static/zh/js/vue/41-001.png)
+![41-001](../../../static/zh/js/vue/41-001.png)
 
 例如，你可能会有页头、侧边栏、内容区等组件，每个组件又包含了其它的像导航链接、博文之类的组件。
 
