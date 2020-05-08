@@ -58,7 +58,8 @@ kubectl logs -f <Pod Name>
 ```
 ## 删除容器和服务
 ```
-kubectl delete deployment <Deployment Name>
+
+<Deployment Name>
 kubectl delete service <Service Name>
 ```
 ## 配置方式运行

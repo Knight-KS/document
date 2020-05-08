@@ -77,3 +77,29 @@ services:
 networks:
   cloud_net:
 ```
+
+
+
+# NextCloud 扫描已存在文件命令
+
+```
+docker exec nextcloud_web su www-data -s /bin/bash -c "php /var/www/html/occ files:scan --all"
+```
+
+NextCloud 安装之后并不认得文件夹内已经存在的内容，需要使用 occ 命令扫描。
+
+在 Docker 里，需要使用下面的命令行，记录一下：
+
+```
+su www-data -s /bin/bash -c "php /var/www/html/occ files:scan --all"
+```
+
+使用方式：
+
+```
+docker exec nextcloud_web su www-data -s /bin/bash -c "php /var/www/html/occ files:scan --all"
+```
+
+记得把 exec 后面的换成你的容器名即可。
+
+都 9102 年了，设置里面连一个扫描按钮都没有…

@@ -12,3 +12,10 @@ ubuntu server 阿里源
 http://mirrors.aliyun.com/ubuntu
 ```
 安装open-ssh
+
+### 设置root密码
+
+```
+sudo passwd root
+```
+

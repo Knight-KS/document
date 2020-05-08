@@ -149,3 +149,56 @@ ip addr > /usr/local/kubernetes/volumes-mount/test.txt
 umount /usr/local/kubernetes/volumes-mount
 ```
 
+### 问题
+
+```
+umount.nfs4: /usr/local/nfs/volumes-mount: device is busy
+```
+
+### 解决
+
+```
+fuser -m -v /usr/local/nfs/volumes-mount
+
+root@env-master:/usr/local/nfs# fuser -m -v /usr/local/nfs/volumes-mount
+                     USER        PID ACCESS COMMAND
+/usr/local/nfs/volumes-mount:
+                     root     kernel mount /usr/local/nfs/volumes-mount
+                     root       2078 ..c.. bash
+root@env-master:/usr/local/nfs# kill -9 2078
+
+
+```
+
+### 其他
+
+```
+#法一
+
+fuser -m -v /data_nas/
+USER PID ACCESS COMMAND
+as: root kernel mount /mnt
+root 7088 ..c.. bash
+admin 7145 ..c.. bash
+
+#法二（亲测有效）
+
+umount -l /data_nas
+
+#法三
+
+fuser -km /data_nas
+```
+
+```
+mount 192.168.31.251:/data6T/volumes/env-master/ /data/env-master/
+
+mount 172.23.34.251:/data/volumes/env-server/ /data/volumes/env-server/
+
+```
+
+```
+chmod a+rwx /home/user/ 
+
+```
+

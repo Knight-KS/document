@@ -8,7 +8,7 @@ autoextend on next 100M maxsize unlimited logging
 extent management local autoallocate
 segment space management auto;
 ```
-   
+
 ## 创建临时表空间
 ```
 create temporary tablespace JCPT_TEMP
@@ -18,7 +18,7 @@ Autoextend on
 Next 100m maxsize 20480m
 Extent management local;
 ```
-   
+
 ## 删除表空间
 ```
 drop tablespace JCPT_TEMP including contents and datafiles cascade constraint;
@@ -74,3 +74,54 @@ drop user LYK cascade;
 ```
 drop tablespace LYK including contents and datafiles cascade constraint;
 ```
+
+
+
+
+
+```
+create tablespace JCPT_DATA
+datafile '/u01/app/oracle/product/11.2.0/xe/oradata/jcpt/JCPT_DATA.dbf' size 1000M 
+autoextend on next 100M maxsize unlimited logging
+extent management local autoallocate
+segment space management auto;
+
+
+create temporary tablespace JCPT_TEMP
+tempfile '/u01/app/oracle/product/11.2.0/xe/oradata/jcpt/JCPT_TEMP.dbf'
+Size 100m
+Autoextend on
+Next 100m maxsize 20480m
+Extent management local;
+
+create user jcpt_system identified by jcpt_system --(注意这里的密码不能有特殊字符，否则会报错)
+account unlock
+DEFAULT tablespace jcpt_data
+Temporary tablespace jcpt_temp;
+
+grant create table to jcpt_system;
+grant unlimited tablespace to jcpt_system;
+grant create tablespace to jcpt_system;
+grant alter tablespace to jcpt_system;
+grant drop tablespace to jcpt_system;
+grant manage tablespace to jcpt_system;
+grant create session,resource to jcpt_system
+```
+
+
+
+```
+create user dzhp identified by dzhp --(注意这里的密码不能有特殊字符，否则会报错)
+account unlock
+DEFAULT tablespace jcpt_data
+Temporary tablespace jcpt_temp;
+
+grant create table to dzhp;
+grant unlimited tablespace to dzhp;
+grant create tablespace to dzhp;
+grant alter tablespace to dzhp;
+grant drop tablespace to dzhp;
+grant manage tablespace to dzhp;
+grant create session,resource to dzhp
+```
+

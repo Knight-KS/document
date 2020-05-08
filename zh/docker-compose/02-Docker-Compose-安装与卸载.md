@@ -18,7 +18,7 @@ Linux 系统请使用以下介绍的方法安装。
 
 例如，在 Linux 64 位系统上直接下载对应的二进制包。
 ```
-$ sudo curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+$ sudo curl -L https://github.com/docker/compose/releases/download/1.25.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 ```
 ## PIP 安装
@@ -44,13 +44,13 @@ $ curl -L https://raw.githubusercontent.com/docker/compose/1.8.0/contrib/complet
 ## 容器中执行
 Compose 既然是一个 Python 应用，自然也可以直接用容器来执行它。
 ```
-$ curl -L https://github.com/docker/compose/releases/download/1.8.0/run.sh > /usr/local/bin/docker-compose
-$ chmod +x /usr/local/bin/docker-compose
+curl -L https://github.com/docker/compose/releases/download/1.25.3/run.sh > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
 ```
 
 国内安装
 ```
-curl -L https://get.daocloud.io/docker/compose/releases/download/1.24.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.3/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
 

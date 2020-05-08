@@ -60,6 +60,10 @@ kind: KubeProxyConfiguration
 featureGates:
   SupportIPVSProxyMode: true
 mode: ipvs
+
+
+
+
 ```
 ## 查看和拉取镜像
 ```

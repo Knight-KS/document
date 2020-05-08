@@ -57,6 +57,13 @@ module.exports = {
         ]
       },
       {
+        text: '下载网站',
+        ariaLabel: '下载网站',
+        items: [
+          { text: '微软msdn', link: 'https://msdn.itellyou.cn/' }
+        ]
+      },
+      {
         text: 'Languages',
         ariaLabel: 'Language Menu',
         items: [

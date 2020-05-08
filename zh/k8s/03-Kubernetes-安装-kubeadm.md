@@ -10,14 +10,40 @@ apt-get update && apt-get install -y apt-transport-https
 curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add -
 # 写入软件源；注意：我们用系统代号为 bionic，但目前阿里云不支持，所以沿用 16.04 的 xenial
 cat << EOF >/etc/apt/sources.list.d/kubernetes.list
-> deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
-> EOF
+deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
+EOF
 ```
 ## 安装 kubeadm，kubelet，kubectl
+
 ```
+一、通过apt-get安装指定版本
+
+apt-get install <<package name>>=<<version>>
+apt-get install -y kubelet=1.15.1-00 kubectl=1.15.1-00 kubeadm=1.15.1-00
+
+
+二、查询指定软件有多少个版本
+
+说明：在Linux用这个查询并不能完全的把所有版本都列举出来，因为每个版本都与系统版本和CPU架构有关，比如一个软件支持Ubuntu系统的16.04的CPU架构为amd64的版本只有1.0和1.2，其余都不支持，所以列举时就只有两款。
+
+１）将列出所有来源的版本
+
+apt-cache madison <<package name>>
+２）信息会比上面详细一点
+
+apt-cache policy <<package name>>
+```
+
+
+
+```
+apt-get update && apt-get install -y apt-transport-https
 # 安装
 apt-get update  
 apt-get install -y kubelet kubeadm kubectl
+apt-get install -y kubelet kubeadm kubectl
+apt-get install -y kubelet=1.15.1-00 kubectl=1.15.1-00 kubeadm=1.15.1-00
+yum -y  install  kubeadm-1.15.1 kubectl-1.15.1 kubelet-1.15.1
 
 # 安装过程如下，注意 kubeadm 的版本号
 Reading package lists... Done

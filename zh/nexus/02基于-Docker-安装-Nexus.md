@@ -20,11 +20,15 @@ services:
     image: sonatype/nexus3
     container_name: nexus
     ports:
-      - 8081:8081
+      - 8083:8081
     volumes:
       - nexus-data:/nexus-data
+    networks:
+      - nexus_net
 volumes:
   nexus-data:
+networks:
+  nexus_net:
 ```
 
 

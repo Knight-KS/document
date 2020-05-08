@@ -16,6 +16,7 @@
 关闭交换空间：`sudo swapoff -a`
 避免开机启动交换空间：注释 `/etc/fstab` 中的 swap
 关闭防火墙：`ufw disable`
+
 ## 使用 APT 安装 Docker
 ### 安装
 ### 更新软件源
@@ -134,3 +135,111 @@ root@kubernetes-master:~# hostnamectl
             Kernel: Linux 4.15.0-48-generic
       Architecture: x86-64
 ```
+
+### k8s 内核优化
+
+```
+cat > kubernetes.conf <<EOF
+net.bridge.bridge-nf-call-iptables=1
+net.bridge.bridge-nf-call-ip6tables=1
+net.ipv4.ip_forward=1net.ipv4.tcp_tw_recycle=0
+vm.swappiness=0 # 禁止使用 swap 空间，只有当系统 OOM 时才允许使用它
+vm.overcommit_memory=1 # 不检查物理内存是否够用
+vm.panic_on_oom=0 # 开启 OOM
+fs.inotify.max_user_instances=8192
+fs.inotify.max_user_watches=1048576
+fs.file-max=52706963fs.nr_open=52706963
+net.ipv6.conf.all.disable_ipv6=1
+net.netfilter.nf_conntrack_max=2310720
+EOF
+cp kubernetes.conf  /etc/sysctl.d/kubernetes.conf
+sysctl -p /etc/sysctl.d/kubernetes.conf
+```
+
+
+
+### 调整系统时区
+
+```
+# 设置系统时区为中国/上海
+timedatectl set-timezone Asia/Shanghai
+# 将当前的 UTC 时间写入硬件时钟
+timedatectl set-local-rtc 0
+# 重启依赖于系统时间的服务
+systemctl restart rsyslog
+systemctl restart crond
+```
+
+### 同步时区
+
+```
+dpkg-reconfigure tzdata
+
+```
+
+### 安装时间同步软件
+
+```
+apt-get install ntpdate
+# 系统网络同步网址
+ntpdate 0.cn.pool.ntp.org
+# 将系统时间写入硬件时间
+hwclock --systohc
+```
+
+
+
+### 关闭系统不需要服务
+
+```
+systemctl stop postfix && systemctl disable postfix
+```
+
+### 设置 rsyslogd 和 systemd journald
+
+```
+mkdir /var/log/journal # 持久化保存日志的目录
+mkdir /etc/systemd/journald.conf.d
+cat > /etc/systemd/journald.conf.d/99-prophet.conf <<EOF
+[Journal]
+# 持久化保存到磁盘
+Storage=persistent
+# 压缩历史日志
+Compress=yesSyncIntervalSec=5m
+RateLimitInterval=30s
+RateLimitBurst=1000
+
+# 最大占用空间 10G
+SystemMaxUse=10G
+# 单日志文件最大 200M
+SystemMaxFileSize=200M
+# 日志保存时间 2 周
+
+MaxRetentionSec=2week
+# 不将日志转发到 syslog
+ForwardToSyslog=no
+EOF
+systemctl restart systemd-journald
+```
+
+
+
+
+
+### kube-proxy开启ipvs的前置条件
+
+```
+modprobe br_netfilter
+cat > /etc/sysconfig/modules/ipvs.modules <<EOF
+#!/bin/bash
+modprobe -- ip_vs
+modprobe -- ip_vs_rr
+modprobe -- ip_vs_wrr
+modprobe -- ip_vs_sh
+modprobe -- nf_conntrack_ipv4
+EOF
+chmod 755 /etc/sysconfig/modules/ipvs.modules && bash /etc/sysconfig/modules/ipvs.modules &&lsmod | grep -e ip_vs -e nf_conntrack_ipv4              
+```
+
+
+
