@@ -18,7 +18,6 @@ cd "$(brew --repo)/Library/Taps/homebrew/homebrew-core"
 git remote set-url origin https://mirrors.aliyun.com/homebrew/homebrew-core.git
 # 刷新源
 brew update
-12345678
 ```
 
 ## 清华源
@@ -113,3 +112,15 @@ export HOMEBREW_NO_AUTO_UPDATE=true
 ```
 出现Updating Homebrew的时候ctrl+c一下就行
 ```
+
+# 解决brew报错：Another active Homebrew update process is already in progress
+
+在mac终端下执行：brew install glew
+结果报错：
+
+```
+Error: Another active Homebrew update process is already in progress.
+Please wait for it to finish or terminate it to continue.
+```
+
+解决方法：`rm -rf /usr/local/var/homebrew/locks`
