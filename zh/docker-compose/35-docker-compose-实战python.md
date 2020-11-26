@@ -16,8 +16,9 @@ services:
     ports:
       - 8777:8888
     ##  - 2222:2222
-    ##volumes:
-    ##  - ./data/app:/app
+    volumes:
+      - ./data/config/jupyter_notebook_config.py:/root/.jupyter/jupyter_notebook_config.py
+      - ./data/app:/home
 ```
 
 Dockerfile
@@ -32,7 +33,11 @@ ENV LC_ALL zh_CN.UTF-8
 # 所以需要在设置环境变量之后使用localedef创建一个字符集
 RUN localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
 
-RUN yum update -y && yum -y install wget curl unzip zip gcc make lsof zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel libffi-devel libpcap-devel xz-devel git make libaio libnsl
+RUN yum update -y && yum -y install wget curl unzip zip gcc make lsof zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel libffi-devel libpcap-devel xz-devel git make libaio libnsl mesa-libGL.x86_64
+
+
+# opencv-python ImportError: libGL.so.1:错误处理
+# RUN yum install mesa-libGL.x86_64
 
 RUN mkdir ~/.pyenv
 RUN git clone git://github.com/yyuu/pyenv.git ~/.pyenv
@@ -48,6 +53,25 @@ RUN /root/.pyenv/bin/pyenv global 3.7.9
 RUN /root/.pyenv/shims/pip install --upgrade pip
 
 RUN /root/.pyenv/shims/pip install jupyter
+
+RUN /root/.pyenv/shims/pip install numpy
+RUN /root/.pyenv/shims/pip install scipy
+RUN /root/.pyenv/shims/pip install pandas
+RUN /root/.pyenv/shims/pip install statsmodels -i https://pypi.tuna.tsinghua.edu.cn/simple/
+RUN /root/.pyenv/shims/pip install matplotlib -i https://pypi.tuna.tsinghua.edu.cn/simple/
+RUN /root/.pyenv/shims/pip install seaborn -i https://pypi.tuna.tsinghua.edu.cn/simple/
+RUN /root/.pyenv/shims/pip install plotly -i https://pypi.tuna.tsinghua.edu.cn/simple/
+RUN /root/.pyenv/shims/pip install bokeh -i https://pypi.tuna.tsinghua.edu.cn/simple/
+RUN /root/.pyenv/shims/pip install pydot -i https://pypi.tuna.tsinghua.edu.cn/simple/
+RUN /root/.pyenv/shims/pip install scikit-learn -i https://pypi.tuna.tsinghua.edu.cn/simple/
+RUN /root/.pyenv/shims/pip install NLTK -i https://pypi.tuna.tsinghua.edu.cn/simple/
+RUN /root/.pyenv/shims/pip install Gensim -i https://pypi.tuna.tsinghua.edu.cn/simple/
+RUN /root/.pyenv/shims/pip install opencv-python -i https://pypi.tuna.tsinghua.edu.cn/simple/
+
+
+# pytorch环境
+RUN /root/.pyenv/shims/pip install torch==1.7.0+cpu torchvision==0.8.1+cpu torchaudio==0.7.0 -f https://download.pytorch.org/whl/torch_stable.html
+
 
 #设置时区
 RUN echo 'Asia/Shanghai' >/etc/timezone
