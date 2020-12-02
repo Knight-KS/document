@@ -67,6 +67,8 @@ RUN /root/.pyenv/shims/pip install scikit-learn -i https://pypi.tuna.tsinghua.ed
 RUN /root/.pyenv/shims/pip install NLTK -i https://pypi.tuna.tsinghua.edu.cn/simple/
 RUN /root/.pyenv/shims/pip install Gensim -i https://pypi.tuna.tsinghua.edu.cn/simple/
 RUN /root/.pyenv/shims/pip install opencv-python -i https://pypi.tuna.tsinghua.edu.cn/simple/
+# pytorch可视化 python -m visdom.server
+RUN /root/.pyenv/shims/pip install visdom -i https://pypi.tuna.tsinghua.edu.cn/simple/
 
 
 # pytorch环境
@@ -79,6 +81,10 @@ RUN echo 'Asia/Shanghai' >/etc/timezone
 ## CMD ["jupyter","notebook --allow-root"]
 
 EXPOSE 8888
+EXPOSE 8097
+
+# 运行
+# docker build -t custom_python:1.0.0 v1.0.0/
 ````
 
 ### jupyter
