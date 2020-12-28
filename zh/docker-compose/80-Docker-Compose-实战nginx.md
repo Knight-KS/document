@@ -17,3 +17,21 @@ services:
       - ./www:/var/www
       - /etc/letsencrypt:/etc/letsencrypt
 ```
+
+### nginx-stmp
+
+```
+version: '3.1'
+services:
+  nginx:
+    restart: always
+    image: alfg/nginx-rtmp
+    container_name: nginx
+    ports:
+      - 81:80
+      #- 80:80
+      #- 443:443
+    volumes:
+      - ./data/html:/usr/local/nginx/html
+```
+

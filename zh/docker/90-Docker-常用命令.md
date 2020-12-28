@@ -71,3 +71,17 @@ sudo docker cp host_path containerID:container_path
 ```
 sudo docker cp containerID:container_path host_path
 ```
+
+###  根据一个运行中的容器，重新打包成镜像
+
+```
+docker commit -a="leizhenjie" -m="install amh6 for centos 7" 9a7a6ebc3862  amh6:1.0
+```
+
+```
+命令为 
+commit  
+-a 为作者
+-m 为描述信息                                                                                                             9a7a6ebc3862 运行中的容器的ID                                                                                                                                        amh6 镜像名                                                                                                                                                 :1.0 版本号
+```
+
