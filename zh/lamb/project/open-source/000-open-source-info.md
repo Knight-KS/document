@@ -70,6 +70,50 @@ docker exec -it baota bash 		#进入宝塔，centos系统
 
 ## 304.java Jpress
 
+```
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: jpress
+      MYSQL_DATABASE: jpress
+      MYSQL_USER: jpress
+      MYSQL_PASSWORD: jpress
+    volumes:
+      - "./docker_volumes/mysql:/var/lib/mysql"
+
+  jpress:
+    depends_on:
+      - db
+    links:
+      - db
+    image: fuhai/jpress:v3.3.0
+    ports:
+      - "8080:8080"
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      JPRESS_DB_HOST: db
+      JPRESS_DB_PORT: 3306
+      JPRESS_DB_NAME: jpress
+      JPRESS_DB_USER: jpress
+      JPRESS_DB_PASSWORD: jpress
+    volumes:
+      - "./docker_volumes/webapp/attachment:/opt/jpress/webapp/attachment"
+      - "./docker_volumes/webapp/addons:/opt/jpress/webapp/addons"
+      - "./docker_volumes/webapp/WEB-INF/addons:/opt/jpress/webapp/WEB-INF/addons"
+      - "./docker_volumes/webapp/wp-content:/opt/jpress/webapp/wp-content"
+      - "./docker_volumes/webapp/templates/dockers:/opt/jpress/webapp/templates/dockers"
+
+```
+
 
 
 —————————————55R类——————————————
@@ -107,5 +151,11 @@ docker exec -it baota bash 		#进入宝塔，centos系统
 —————————————杂项——————————————
 
 ## 701.安装临时邮箱
+
+```
+docker run --name forsaken-mail -d -p 25:25 -p 3000:3000 denghongcai/forsaken-mail
+```
+
+
 
 ## 702.安装Meedu付费视频
