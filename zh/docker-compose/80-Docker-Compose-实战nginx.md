@@ -18,7 +18,7 @@ services:
       - /etc/letsencrypt:/etc/letsencrypt
 ```
 
-### nginx-stmp
+### nginx-rtmp
 
 ```
 version: '3.1'
