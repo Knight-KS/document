@@ -4,7 +4,7 @@
 version: '3'
 services:
   mongo-db:
-    image: mongo:latest
+    image: mongo:4.2.5
     container_name: mongo-db
     #network_mode: "host"
     restart: always
@@ -15,7 +15,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: admin@123
     volumes:
-      - /opt/gukesoft/middleware/mongo/db:/data/db
+      - ./data/mongo/db:/data/db
       - /etc/localtime:/etc/localtime
     logging:
       driver: "json-file"
@@ -24,7 +24,7 @@ services:
         max-file: "10"
 
   mongo-express:
-    image: mongo-express:latest
+    image: mongo-express:4.2.5
     container_name: mongo-express
     restart: always
     links:
@@ -40,6 +40,11 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: admin@123
       ME_CONFIG_BASICAUTH_USERNAME: admin
       ME_CONFIG_BASICAUTH_PASSWORD: admin@123
+      
+      
+      
+      
+
 ```
 
 docker-compose up -d 启动容器（mongodb默认端口是27017）。

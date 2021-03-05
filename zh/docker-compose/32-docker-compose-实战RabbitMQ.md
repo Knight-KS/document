@@ -4,6 +4,7 @@
 version: '3'
 services:
   rabbitmq:
+    restart: always
     image: rabbitmq:3.7.15-management
     container_name: rabbitmq
     volumes:

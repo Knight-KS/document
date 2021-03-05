@@ -175,3 +175,16 @@ ls | grep -vf test.txt |xargs rm
 find -mtime +30 -name "*[0-9]*" -exec rm {} \;
 ```
 
+## linux 代理上网命令
+
+```
+ssh -qTfnN -D 7777 root@47.90.127.53
+```
+
+| 参数 | 备注                                                         |      解释      |
+| :--- | :----------------------------------------------------------- | :------------: |
+| -q   | Quiet mode. Causes most warning and diagnostic messages to be suppressed. |    安静模式    |
+| -T   | Disable pseudo-tty allocation.                               |   不分配tty    |
+| -f   | Requests ssh to go to background just before command execution. |    后台运行    |
+| -n   | Redirects stdin from /dev/null                               |     不输出     |
+| -N   | Do not execute a remote command. This is useful for just forwarding ports | 不执行远程命令 |

@@ -81,14 +81,14 @@ drop tablespace LYK including contents and datafiles cascade constraint;
 
 ```
 create tablespace JCPT_DATA
-datafile '/u01/app/oracle/product/11.2.0/xe/oradata/jcpt/JCPT_DATA.dbf' size 1000M 
+datafile '/u01/app/oracle/oradata/jcpt/JCPT_DATA.dbf' size 1000M 
 autoextend on next 100M maxsize unlimited logging
 extent management local autoallocate
 segment space management auto;
 
 
 create temporary tablespace JCPT_TEMP
-tempfile '/u01/app/oracle/product/11.2.0/xe/oradata/jcpt/JCPT_TEMP.dbf'
+tempfile '/u01/app/oracle/oradata/jcpt/JCPT_TEMP.dbf'
 Size 100m
 Autoextend on
 Next 100m maxsize 20480m
@@ -123,5 +123,64 @@ grant alter tablespace to dzhp;
 grant drop tablespace to dzhp;
 grant manage tablespace to dzhp;
 grant create session,resource to dzhp
+```
+
+```
+create user jcpt_esb identified by jcpt_esb --(注意这里的密码不能有特殊字符，否则会报错)
+account unlock
+DEFAULT tablespace jcpt_data
+Temporary tablespace jcpt_temp;
+
+grant create table to jcpt_esb;
+grant unlimited tablespace to jcpt_esb;
+grant create tablespace to jcpt_esb;
+grant alter tablespace to jcpt_esb;
+grant drop tablespace to jcpt_esb;
+grant manage tablespace to jcpt_esb;
+grant create session,resource to jcpt_esb
+```
+
+```
+create user jcpt identified by jcpt --(注意这里的密码不能有特殊字符，否则会报错)
+account unlock
+DEFAULT tablespace jcpt_data
+Temporary tablespace jcpt_temp;
+
+grant create table to jcpt;
+grant unlimited tablespace to jcpt;
+grant create tablespace to jcpt;
+grant alter tablespace to jcpt;
+grant drop tablespace to jcpt;
+grant manage tablespace to jcpt;
+grant create session,resource to jcpt;
+```
+
+```sql
+create user jcfwpt identified by jcfwpt --(注意这里的密码不能有特殊字符，否则会报错)
+account unlock
+DEFAULT tablespace jcpt_data
+Temporary tablespace jcpt_temp;
+
+grant create table to jcfwpt;
+grant unlimited tablespace to jcfwpt;
+grant create tablespace to jcfwpt;
+grant alter tablespace to jcfwpt;
+grant drop tablespace to jcfwpt;
+grant manage tablespace to jcfwpt;
+grant create session,resource to jcfwpt;
+```
+
+```
+grant select any transaction to ods;
+grant execute on dbms_logmnr_d to ods;
+grant execute on dbms_logmnr to ods;
+grant execute on dbms_flashback to ods;
+grant create session to ods;
+grant resource to ods;
+grant select any dictionary to ods;
+grant flashback any table to ods;
+grant execute_catalog_role to ods;
+grant select any table to ods;
+grant LOGMINING to ods;
 ```
 
