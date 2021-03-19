@@ -20,7 +20,7 @@ version: '3.1'
 services:
   tomcat:
     restart: always
-    image: tomcat
+    image: tomcat:8.5.64-jdk8
     container_name: tomcat
     ports:
       - 8080:8080

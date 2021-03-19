@@ -15,6 +15,23 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf
 ```
 
+```
+version: '2.0'
+
+services:
+  nginx:
+    restart: always
+    image: nginx:1.11.6-alpine
+    ports:
+      - 82:80
+    volumes:
+     # - ./data/conf.d:/etc/nginx/conf.d
+      - ./data/log:/var/log/nginx
+      - ./data/html:/usr/share/nginx/html
+     # - /etc/letsencrypt:/etc/letsencrypt
+
+```
+
 
 
 ## nginx.conf 
