@@ -100,3 +100,30 @@ collector.backend_service (后端服务的ip地址和端口 xxx.xxx.xxx.xxx:1180
 
 ```
 
+```
+version: '3.3'
+services:
+  oap:
+    image: apache/skywalking-oap-server:8.3.0-es7
+    container_name: oap
+    restart: always
+    ports:
+      - 11800:11800
+      - 12800:12800
+    environment:
+      SW_STORAGE: elasticsearch7
+      SW_STORAGE_ES_CLUSTER_NODES: 192.168.10.181:9200
+  ui:
+    image: apache/skywalking-ui:8.3.0
+    container_name: ui
+    restart: always
+    depends_on:
+      - oap
+    links:
+      - oap
+    ports:
+      - 8801:8080
+    environment:
+      SW_OAP_ADDRESS: oap:12800
+```
+

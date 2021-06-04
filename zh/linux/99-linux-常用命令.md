@@ -26,6 +26,28 @@ ubunut aliyun  source
 http://mirrors.aliyun.com/ubuntu/
 ```
 
+
+
+### 找出占用cpu内存过高的进程
+
+```
+//分析占用CPU最高的应用
+[root@dy1 ~]# ps -eo user,pid,pcpu,pmem,args --sort=-pcpu  |head -n 10
+//分析占用内存最高的应用
+[root@dy1 ~]# ps -eo user,pid,pcpu,pmem,args --sort=-pmem  |head -n 10
+```
+
+```
+#!/bin/bash
+echo "-------------------CUP占用前10排序--------------------------------"
+ps -eo user,pid,pcpu,pmem,args --sort=-pcpu  |head -n 10
+echo "-------------------内存占用前10排序--------------------------------"
+ps -eo user,pid,pcpu,pmem,args --sort=-pmem  |head -n 10
+————————————————
+```
+
+
+
 ### df命令
 
 ```

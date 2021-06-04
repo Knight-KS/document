@@ -85,3 +85,8 @@ commit
 -m 为描述信息                                                                                                             9a7a6ebc3862 运行中的容器的ID                                                                                                                                        amh6 镜像名                                                                                                                                                 :1.0 版本号
 ```
 
+```
+docker save ubuntu:load>/root/ubuntu.tar
+docker load<ubuntu.tar
+```
+

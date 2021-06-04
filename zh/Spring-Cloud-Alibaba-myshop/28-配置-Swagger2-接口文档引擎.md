@@ -163,7 +163,7 @@ public AbstractBaseResult reg(@ApiParam(name = "tbUser", value = "用户模型")
 
 
 
-### [#](https://www.vvdd.com/zh/spring-cloud-alibaba-myshop/配置-Swagger2-接口文档引擎.html#访问-swagger2)访问 Swagger2
+### 访问 Swagger2
 
 访问地址：http://ip:port/swagger-ui.html
 

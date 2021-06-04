@@ -51,6 +51,8 @@ apt-get install -y nfs-kernel-server
 
 ```
 apt-get install -y nfs-common
+# centos 
+yum install nfs-utils -y
 ```
 
 - 创建 NFS 客户端挂载目录

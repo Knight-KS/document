@@ -9,6 +9,7 @@ services:
     restart: always
     environment:
       - TZ=Asia/Shanghai
+      - "JAVA_OPTS=-Xms512m -Xmx512m" #设置使用jvm内存大小
     ports:
       - '3083:8080'
       - '50001:50000'
